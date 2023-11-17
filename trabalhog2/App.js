@@ -4,4 +4,4 @@ export default function App() {
   return <Rotas />;
 }
 
-/* TAG: 4.0.1 */
+/* TAG: 4.0.2 */
