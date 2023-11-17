@@ -25,9 +25,9 @@ export const Rotas = () => {
           component={Produtos}
           options={{ title: 'Produtos' }} />
         <Screen
-          name='Detalhes DE produtos'
+          name='DetalhesProdutos'
           component={DetalhesProdutos}
-          options={{ title: 'DetalhesProdutos' }} />
+          options={{ title: 'Detalhes de produtos' }} />
         <Screen
           name='Integrantes'
           component={Integrantes}
