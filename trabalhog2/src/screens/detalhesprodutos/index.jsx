@@ -3,7 +3,9 @@ import { View, Text, StyleSheet } from 'react-native';
 export const DetalhesProdutos = () => {
   return (
     <View style={styles.container}>
-      <Text>Detalhes de Produtos</Text>
+      <Text>
+        teste
+      </Text>
     </View>
   );
 };
