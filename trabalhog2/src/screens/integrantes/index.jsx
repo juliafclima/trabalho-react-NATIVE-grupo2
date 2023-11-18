@@ -6,27 +6,26 @@ export const Integrantes = () => {
   const membros = [
     {
       nome: 'HEVELISE DIAS DO CARMO',
-      foto: 'URL_DA_FOTO_1',
-      linkedin: 'https://github.com/Hevelise-Liz',
-      descricao: 'Descrição maneira',
+      foto: require('../../assets/integrantes/liz.jpg'), 
+      descricao: "Estudante de programação feliz após usar os medicamentos da CodFarma",
     },
     {
       nome: 'JULIA LIMA FERNANDES CARNEIRO',
-      foto: 'URL_DA_FOTO_2',
+      foto: require('../../assets/integrantes/julia.jpg'),
       linkedin: 'https://github.com/juliafclima',
-      descricao: 'Descrição do membro 2.',
+      descricao: 'Hello, world!',
     },
     {
       nome: 'LUCAS DE MELLO SELJAN',
-      foto: 'URL_DA_FOTO_2',
+      foto: require('../../assets/integrantes/lucasseljan.jpg'),
       linkedin: 'https://github.com/Lucas-Seljan',
-      descricao: 'Descrição do membro 2.',
+      descricao: "Um projeto a programador amistoso, sofrido e genial",
     },
     {
       nome: 'LUCAS JOSÉ GONÇALVES',
-      foto: 'URL_DA_FOTO_2',
+      foto: require('../../assets/integrantes/lucasjose.jpg'),
       linkedin: 'https://github.com/Lucas-Jose-Goncalves',
-      descricao: 'Descrição do membro 2.',
+      descricao: "Sou apenas um console querendo fugir dos erros da vida",
     },
     {
       nome: 'PEDRO HORÁCIO SAURINO FILHO',
@@ -36,9 +35,9 @@ export const Integrantes = () => {
     },
     {
       nome: 'PAULO JEFERSON WERNER DE ALCÂNTARA',
-      foto: 'URL_DA_FOTO_2',
+      foto: require('../../assets/integrantes/pj.jpg'),
       linkedin: 'https://github.com/Paulo-Jeferson',
-      descricao: 'Descrição do membro 2.',
+      descricao: "“Na vida, não existe nada a temer, mas a entender.” - Marie Curie",
     },
     
   ];
@@ -51,18 +50,10 @@ export const Integrantes = () => {
           <Text style={[styles.text, { fontSize: 20, fontWeight: 'bold', textAlign: 'center' }]}>
             {membro.nome}
           </Text>
-          <Text style={[styles.text, { fontStyle: 'italic', textAlign: 'center' }]}>
+          <Text style={[styles.text, { fontStyle: 'italic', textAlign: 'center', marginHorizontal: 10 }]}>
             {membro.descricao}
           </Text>
-          <Text
-            style={[
-              styles.text,
-              { color: '#477CFF', textAlign: 'center' },
-            ]}
-            onPress={() => Linking.openURL(membro.linkedin)}
-          >
-            LinkedIn
-          </Text>
+
           <TouchableOpacity
             onPress={() => Linking.openURL(membro.linkedin)}
             style={[styles.linkedinButton, { backgroundColor: '#477CFF' }]}
@@ -102,11 +93,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   image: {
-    width: "80%",
+    width: '100%',
     height: 200,
+    resizeMode: 'cover',
     borderRadius: 10,
     alignSelf: 'center',
     marginVertical: 20,
+    alignItems: 'center', 
   },
   text: {
     marginVertical: 5,
