@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Integrantes } from '../screens/integrantes';
 import { Home } from '../screens/home';
 import { Login } from '../screens/login';
 import { Produtos } from '../screens/produtos';
-import { Integrantes } from '../screens/integrantes';
 import { DetalhesProdutos } from '../screens/detalhesprodutos';
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -28,11 +28,10 @@ export const Rotas = () => {
           name='Produtos'
           component={Produtos}
           options={{ title: 'Produtos' }} />
-        
         <Screen
-          name='Integrantes'
-          component={Integrantes}
-          options={{ title: 'Integrantes' }} />
+          name='DetalhesProdutos'
+          component={DetalhesProdutos}
+          options={{ title: 'Detalhes de produtos' }} />
       </Navigator>
     </NavigationContainer>
   );
