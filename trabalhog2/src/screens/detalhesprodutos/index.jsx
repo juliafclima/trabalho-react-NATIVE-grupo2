@@ -7,11 +7,11 @@ export const DetalhesProdutos = () => {
   return (
     <View style={styles.container}>
 
-<Card>
+<Card style={styles.cards}>
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
-      <Text variant="titleLarge">Card title</Text>
-      <Text variant="bodyMedium">Card content</Text>
+      <Text variant="titleLarge">Card titl tryyyyyy6</Text>
+      <Text variant="bodyMedium">Card content  tytutyuju</Text>
     </Card.Content>
   </Card>
 
@@ -52,5 +52,4 @@ export const DetalhesProdutos = () => {
     </View>
   );
 };
-
 
