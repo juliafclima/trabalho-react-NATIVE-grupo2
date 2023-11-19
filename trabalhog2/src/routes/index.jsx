@@ -15,7 +15,7 @@ export const Rotas = () => {
       <Screen
           name='DetalhesProdutos'
           component={DetalhesProdutos}
-          options={{ title: 'Detalhes de produtos' }} />
+          options={{ title: 'Detalhes dos produtos' }} />
         <Screen
           name='Login'
           component={Login}

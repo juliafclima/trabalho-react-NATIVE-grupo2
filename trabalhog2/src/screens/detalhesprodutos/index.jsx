@@ -1,18 +1,56 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View,StyleSheet } from 'react-native';
+import { styles} from "./style";
+import { Card, Text } from 'react-native-paper';
+import React from "react";
 
 export const DetalhesProdutos = () => {
   return (
     <View style={styles.container}>
-      <Text>
-        teste
-      </Text>
+
+<Card>
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Content>
+      <Text variant="titleLarge">Card title</Text>
+      <Text variant="bodyMedium">Card content</Text>
+    </Card.Content>
+  </Card>
+
+  <Card>
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Content>
+      <Text variant="titleLarge">Card title</Text>
+      <Text variant="bodyMedium">Card content</Text>
+    </Card.Content>
+  </Card>
+ 
+  <Card>
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Content>
+      <Text variant="titleLarge">Card title</Text>
+      <Text variant="bodyMedium">Card content</Text>
+    </Card.Content>
+  </Card>
+  <Card>
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Content>
+      <Text variant="titleLarge">Card title</Text>
+      <Text variant="bodyMedium">Card content</Text>
+    </Card.Content>
+  </Card>
+
+  <Card>
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Content>
+      <Text variant="titleLarge">Card title</Text>
+      <Text variant="bodyMedium">Card content</Text>
+    </Card.Content>
+  </Card>
+ 
+ 
+
+
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+
