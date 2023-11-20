@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView } from "react-native";
 import { styles } from "./style";
 import { Card, Text } from "react-native-paper";
 import React from "react";
