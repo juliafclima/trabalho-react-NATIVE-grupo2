@@ -12,11 +12,16 @@ const produtos = [
 
 const renderCard = ({ item, index, navigation }) => (
   <Card style={[styles.card, { backgroundColor: item.cor }]}>
-    <Card.Cover style={styles.foto} source={{ uri: "https://picsum.photos/700" }} />
+    <Card.Cover
+      style={styles.foto}
+      source={{ uri: "https://picsum.photos/700" }}
+    />
     <Text style={styles.title}>{item.nome}</Text>
     <TouchableOpacity
       style={[styles.botao, { backgroundColor: "white" }]}
-      onPress={() => navigation.navigate("DetalhesProdutos", { produtoIndex: index })}
+      onPress={() =>
+        navigation.navigate("DetalhesProdutos", { produtoIndex: index })
+      }
     >
       <Text>Saiba mais</Text>
     </TouchableOpacity>

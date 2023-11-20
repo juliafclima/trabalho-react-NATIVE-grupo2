@@ -42,11 +42,8 @@ export const styles = StyleSheet.create({
     paddingStart: "5",
     backgroundColor: "white",
     padding: 8,
-    borderTopLeftRadius:12,
-    borderTopEndRadius:12,
-    
-
- 
+    borderTopLeftRadius: 12,
+    borderTopEndRadius: 12,
   },
 
   subtitle2: {
@@ -55,8 +52,18 @@ export const styles = StyleSheet.create({
     paddingStart: "5",
     backgroundColor: "white",
     padding: 8,
-    borderEndEndRadius:12,
+    borderEndEndRadius: 12,
     borderEndStartRadius: 12,
- 
   },
+
+  //   botão:{
+  //     justifyContent: "center",
+  // backgroundColor: "white",
+  //    alignItems :"center",
+  //    padding:8,
+  //    marginTop: 10,
+  //     borderRadius: 14,
+  //     width: "100%",
+
+  //   }
 });
