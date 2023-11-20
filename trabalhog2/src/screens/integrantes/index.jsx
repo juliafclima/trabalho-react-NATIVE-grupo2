@@ -24,7 +24,7 @@ export const Integrantes = () => {
     {
       nome: 'HEVELISE DIAS DO CARMO',
       foto: require('../../assets/integrantes/liz.jpg'), 
-      descricao: "Estudante de programação feliz após usar os medicamentos da CodFarma",
+      descricao: "Completamente louco mas um louco consciente",
     },
     {
       nome: 'JULIA LIMA FERNANDES CARNEIRO',
