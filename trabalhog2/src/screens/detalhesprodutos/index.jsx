@@ -5,6 +5,10 @@ import React from "react";
 
 export const DetalhesProdutos = () => {
   return (
+
+
+
+
     <View style={styles.container}>
 
 <Card style={styles.cards}>
@@ -15,7 +19,7 @@ export const DetalhesProdutos = () => {
     </Card.Content>
   </Card>
 
-  <Card>
+  <Card style={styles.cards}>
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
       <Text variant="titleLarge">Card title</Text>
@@ -23,14 +27,7 @@ export const DetalhesProdutos = () => {
     </Card.Content>
   </Card>
  
-  <Card>
-    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-    <Card.Content>
-      <Text variant="titleLarge">Card title</Text>
-      <Text variant="bodyMedium">Card content</Text>
-    </Card.Content>
-  </Card>
-  <Card>
+  <Card style={styles.cards} >
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
       <Text variant="titleLarge">Card title</Text>
@@ -38,7 +35,15 @@ export const DetalhesProdutos = () => {
     </Card.Content>
   </Card>
 
-  <Card>
+  <Card style={styles.cards} >
+    <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+    <Card.Content>
+      <Text variant="titleLarge">Card title</Text>
+      <Text variant="bodyMedium">Card content</Text>
+    </Card.Content>
+  </Card>
+
+  <Card style={styles.cards} >
     <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
     <Card.Content>
       <Text variant="titleLarge">Card title</Text>
