@@ -62,12 +62,12 @@ const DetalheProduto = ({ nome, descricao, detalhes, index }) => {
       <Text style={styles.subtitle}>{descricao}</Text>
       <Text style={styles.subtitle2}>{detalhes}</Text>
 
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={styles.botão}
         onPress={() => navigation.navigate("Produtos")}
       >
-        <Text style={styles.botãoComprar}>Comprar</Text> 
-      </TouchableOpacity> */}
+        <Text style={styles.botãoComprar}>Comprar</Text>
+      </TouchableOpacity>
     </Card>
   );
 };

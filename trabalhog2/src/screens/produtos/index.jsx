@@ -25,6 +25,15 @@ const renderCard = ({ item, index, navigation }) => (
     >
       <Text>Saiba mais</Text>
     </TouchableOpacity>
+
+    <TouchableOpacity
+      style={[styles.botao2, { backgroundColor: "white" }]}
+      onPress={() =>
+        navigation.navigate("DetalhesProdutos", { produtoIndex: index })
+      }
+    >
+      <Text>Comprar</Text>
+    </TouchableOpacity>
   </Card>
 );
 
@@ -59,6 +68,13 @@ const styles = StyleSheet.create({
     color: "white",
   },
   botao: {
+    padding: 10,
+    alignItems: "center",
+    borderRadius: 15,
+    width: "100%",
+    marginBottom: 10,
+  },
+  botao2: {
     padding: 10,
     alignItems: "center",
     borderRadius: 15,

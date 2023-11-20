@@ -56,14 +56,13 @@ export const styles = StyleSheet.create({
     borderEndStartRadius: 12,
   },
 
-  //   botão:{
-  //     justifyContent: "center",
-  // backgroundColor: "white",
-  //    alignItems :"center",
-  //    padding:8,
-  //    marginTop: 10,
-  //     borderRadius: 14,
-  //     width: "100%",
-
-  //   }
+  botão: {
+    justifyContent: "center",
+    backgroundColor: "white",
+    alignItems: "center",
+    padding: 10,
+    marginTop: 10,
+    borderRadius: 14,
+    width: "100%",
+  },
 });
