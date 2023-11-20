@@ -1,4 +1,4 @@
-import { View, ScrollView } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { styles } from "./style";
 import { Card, Text } from "react-native-paper";
 import React from "react";
@@ -41,29 +41,32 @@ const produtos = [
   },
 ];
 
-const DetalheProduto = ({ nome, descricao, detalhes }) => (
-  <Card style={styles.cards1}>
-    <Card.Cover style={styles.foto} source={{ uri: "https://picsum.photos/700" }} />
+const getCardColor = (index) => {
+  const colors = ["#f17064", "#ffb25f", "#55b3d1"];
+  return colors[index % colors.length];
+};
 
-    <Text style={styles.title} variant="titleLarge">
-      {nome}
-    </Text>
-    <Text style={styles.subtitle} variant="bodyMedium">
-      {descricao}
-      <br />
-      <br />
-      {detalhes}
-    </Text>
-  </Card>
-);
+const DetalheProduto = ({ nome, descricao, detalhes, index }) => {
+  const cardStyle = {
+    ...styles.card,
+    backgroundColor: getCardColor(index),
+  };
+
+  return (
+    <Card style={cardStyle}>
+      <Card.Cover style={styles.foto} source={{ uri: "https://picsum.photos/700" }} />
+      <Text style={styles.title}>{nome}</Text>
+      <Text style={styles.subtitle}>{descricao}</Text>
+      <Text style={styles.subtitle}>{detalhes}</Text>
+    </Card>
+  );
+};
 
 export const DetalhesProdutos = () => (
-  <ScrollView
-    contentContainerStyle={styles.container}
-    showsVerticalScrollIndicator={false}
-  >
+  <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
     {produtos.map((produto, index) => (
-      <DetalheProduto key={index} {...produto} />
+      <DetalheProduto key={index} index={index} {...produto} />
     ))}
   </ScrollView>
 );
+
