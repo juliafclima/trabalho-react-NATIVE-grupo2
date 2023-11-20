@@ -42,5 +42,21 @@ export const styles = StyleSheet.create({
     paddingStart: "5",
     backgroundColor: "white",
     padding: 8,
+    borderTopLeftRadius:12,
+    borderTopEndRadius:12,
+    
+
+ 
+  },
+
+  subtitle2: {
+    color: "black",
+    fontSize: 18,
+    paddingStart: "5",
+    backgroundColor: "white",
+    padding: 8,
+    borderEndEndRadius:12,
+    borderEndStartRadius: 12,
+ 
   },
 });

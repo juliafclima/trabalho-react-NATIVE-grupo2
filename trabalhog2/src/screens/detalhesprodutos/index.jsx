@@ -22,6 +22,7 @@ const produtos = [
     nome: "SACHÊ DO SONO",
     descricao:
       "Para quem revira 342 vezes na cama antes de conseguir dormir.",
+      
     detalhes:
       'Para você que vai deitar pensando "mas e se eu colocasse uma vírgula na linha 15?!" (Este produto não impede sonhos, pesadelos e afins envolvendo programação. Caso persistirem os sintomas, ceda, levante e code. Esta pode ser a solução do seu erro.)',
   },
@@ -57,7 +58,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, index }) => {
       <Card.Cover style={styles.foto} source={{ uri: "https://picsum.photos/700" }} />
       <Text style={styles.title}>{nome}</Text>
       <Text style={styles.subtitle}>{descricao}</Text>
-      <Text style={styles.subtitle}>{detalhes}</Text>
+      <Text style={styles.subtitle2}>{detalhes}</Text>
     </Card>
   );
 };
