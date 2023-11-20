@@ -6,20 +6,21 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   
     backgroundColor: "#55b3d1",
-    padding: 10,
+    padding: 15,
     
   },
 
   cards: {
     marginBottom: 30,
-    padding: 10,
+    padding: 15,
+  backgroundColor: "#f17064",
+
     
   },
 
 foto:{
 
-borderColor: "#f17064",
-borderWidth: 4,
+
 
 },
 
@@ -44,10 +45,14 @@ texto:{
  paddingTop:10,
  paddingBottom: 10,
  textAlign: 'center',
+ color: "white",
+
   },
 
   subtitle:{
-    
+    color: "white",
+    fontSize: 18,
+    paddingStart: "5",
 
   },
 });
