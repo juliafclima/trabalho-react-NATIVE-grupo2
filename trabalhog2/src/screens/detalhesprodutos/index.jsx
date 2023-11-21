@@ -1,7 +1,6 @@
-import { ScrollView, TouchableOpacity } from "react-native";
-import { styles } from "./style";
-import { Card, Text } from "react-native-paper";
-import React from "react";
+import React, { useState } from "react";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const produtos = [
   {
@@ -41,44 +40,106 @@ const produtos = [
   },
 ];
 
-const getCardColor = (index) => {
-  const colors = ["#f17064", "#ffb25f", "#55b3d1"];
-  return colors[index % colors.length];
-};
+export const DetalhesProduto = ({ route }) => {
+  const { nome, descricao, detalhes, preco, imagem, cor } = route.params;
+  const [quantidade, setQuantidade] = useState(1);
+  const navigation = useNavigation();
 
-const DetalheProduto = ({ nome, descricao, detalhes, index }) => {
-  const cardStyle = {
-    ...styles.card,
-    backgroundColor: getCardColor(index),
+  const handleQuantityChange = (amount) => {
+    setQuantidade((prevQuantidade) => Math.max(1, prevQuantidade + amount));
+  };
+
+  const adicionarAoCarrinho = () => {
+    console.log(`Adicionado ao carrinho: ${quantidade} x ${nome}`);
   };
 
   return (
-    <Card style={cardStyle}>
-      <Card.Cover
-        style={styles.foto}
-        source={{ uri: "https://picsum.photos/700" }}
-      />
-      <Text style={styles.title}>{nome}</Text>
-      <Text style={styles.subtitle}>{descricao}</Text>
-      <Text style={styles.subtitle2}>{detalhes}</Text>
+    <View style={styles.container}>
+      <Image source={imagem} style={styles.imagem} />
+      <Text style={styles.titulo}>{nome}</Text>
+      <Text style={styles.descricao}>{descricao}</Text>
+      <Text style={styles.preco}>R$ {preco.toFixed(2)}</Text>
+
+      <View style={styles.containerQuantidade}>
+        <TouchableOpacity
+          onPress={() => handleQuantityChange(-1)}
+          style={styles.botaoQuantidade}
+        >
+          <Text style={styles.botaoTexto}>-</Text>
+        </TouchableOpacity>
+        <Text style={styles.quantidade}>{quantidade}</Text>
+        <TouchableOpacity
+          onPress={() => handleQuantityChange(1)}
+          style={styles.botaoQuantidade}
+        >
+          <Text style={styles.botaoTexto}>+</Text>
+        </TouchableOpacity>
+      </View>
 
       <TouchableOpacity
-        style={styles.botão}
-        onPress={() => navigation.navigate("Produtos")}
+        onPress={adicionarAoCarrinho}
+        style={[styles.botaoAdicionar, { backgroundColor: cor }]}
       >
-        <Text style={styles.botãoComprar}>Comprar</Text>
+        <Text style={styles.botaoTexto}>Adicionar ao Carrinho</Text>
       </TouchableOpacity>
-    </Card>
+    </View>
   );
 };
 
-export const DetalhesProdutos = () => (
-  <ScrollView
-    contentContainerStyle={styles.container}
-    showsVerticalScrollIndicator={false}
-  >
-    {produtos.map((produto, index) => (
-      <DetalheProduto key={index} index={index} {...produto} />
-    ))}
-  </ScrollView>
-);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 16,
+  },
+  imagem: {
+    width: 200,
+    height: 200,
+    resizeMode: "cover",
+    borderRadius: 5,
+  },
+  titulo: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  descricao: {
+    fontSize: 14,
+    textAlign: "center",
+    marginTop: 5,
+  },
+  preco: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 5,
+  },
+  containerQuantidade: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  botaoQuantidade: {
+    backgroundColor: "#55b3d1",
+    borderRadius: 5,
+    width: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 5,
+  },
+  botaoTexto: {
+    fontSize: 16,
+    color: "white",
+  },
+  quantidade: {
+    marginHorizontal: 10,
+    fontSize: 16,
+  },
+  botaoAdicionar: {
+    backgroundColor: "#55b3d1",
+    borderRadius: 5,
+    marginTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+});
