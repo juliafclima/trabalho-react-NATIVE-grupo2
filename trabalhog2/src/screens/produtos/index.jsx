@@ -120,4 +120,6 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 10,
     opacity: 0.9,
   },
+
 });
+
