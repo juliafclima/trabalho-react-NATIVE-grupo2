@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
+    backgroundColor: '#FFF',
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -52,28 +53,33 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#FFF',
     width: '90%',
-    marginBottom: 15,
-    color: '#222',
+    marginBottom: 40,
+    color: '#009bbf',
     fontSize: 17,
-    borderRadius: 30,
-    paddingBottom: 10
+    borderRadius: 5,
+    paddingBottom: 10,
   },
   btnSubmit: {
-    backgroundColor: '#35AAFF',
+    backgroundColor: '#009bbf',
     width: '90%',
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 30,
+    borderRadius: 5,
   },
   submitText: {
-    color: '#FFF',
+    color: '#fff',
     fontSize: 18,
   },
   btnRegister: {
     marginTop: 10,
   },
   registerText: {
-    color: 'black',
+    color: '#009bbf',
+    fontSize: 15
+  },
+  btnText: {
+  color: '#fff',
+  fontSize: 20
   }
 });
