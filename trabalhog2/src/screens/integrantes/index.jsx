@@ -24,7 +24,7 @@ export const Integrantes = () => {
     {
       nome: 'HEVELISE DIAS DO CARMO',
       foto: require('../../assets/integrantes/liz.jpg'), 
-      descricao: "Completamente louco mas um louco consciente",
+      descricao: "Completamente louca, mas uma louca consciente",
     },
     {
       nome: 'JULIA LIMA FERNANDES CARNEIRO',
