@@ -92,7 +92,7 @@ export const Rotas = () => {
         <Screen
           name='Login'
           component={Login}
-          options={{ title: 'Login' }} />
+          options={{ headerShown: false }} />
         <Screen
           name='Home'
           component={Home}
