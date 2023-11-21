@@ -1,12 +1,10 @@
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { logo } from '../../assets/login/Logo-Cod-Farma.png';
 
 export const Login = ({ navigation }) => {
   return (
     <KeyboardAvoidingView style={styles.background}>
       <View style={styles.containerLogo}>
-        <Image
-          source={logo}
+        <Image style={{width: 280, height: 200, resizeMode: 'contain'}} source={require("../../assets/login/Logo-Cod-Farma.png")}
         />
       </View>
       <View style={styles.container}>
@@ -38,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "fff"
+    backgroundColor: "#fff"
   },
   containerLogo: {
     flex: 1,
@@ -52,7 +50,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   input: {
-    backgroundColor: 'FFF',
+    backgroundColor: '#FFF',
     width: '90%',
     marginBottom: 15,
     color: '#222',
@@ -76,6 +74,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   registerText: {
-    color: '#FFF',
+    color: 'black',
   }
 });
