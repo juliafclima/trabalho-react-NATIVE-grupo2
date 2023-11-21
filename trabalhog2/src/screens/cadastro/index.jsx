@@ -24,6 +24,23 @@ export default function Cadastro() {
   const cadastrarUsuario = async () => {
     const { nome, email, senha, confirmarSenha } = formData;
 
+    // Aqui está sendo verificado se o nome, o email e a senha são válidos
+    try {
+      if (!nome || nome.length < 3) {
+        throw new Error('O nome deve ter pelo menos 3 caracteres!');
+      }
+      if (!email || !email.includes('@')) {
+        throw new Error('Por favor, insira um email válido!');
+      }
+      if (!senha || senha.length < 6) {
+        throw new Error('A senha deve ter pelo menos 6 caracteres!');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+      setVisible(true);
+      return;
+    }
+
     if (!nome || !email || !senha || !confirmarSenha) {
       setErrorMessage('Preencha todos os campos!');
       setVisible(true);
@@ -98,7 +115,7 @@ export default function Cadastro() {
 
       {/* Adicionei o Snackbar que é exibido quando visible é true */}
       <Snackbar
-      // https://callstack.github.io/react-native-paper/docs/components/Snackbar
+        // https://callstack.github.io/react-native-paper/docs/components/Snackbar
         visible={visible}
         onDismiss={() => setVisible(false)}
         action={{
