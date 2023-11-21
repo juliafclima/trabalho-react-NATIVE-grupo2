@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
@@ -45,25 +45,29 @@ export default function Cadastro() {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Cadastro de Usuário</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Cadastro de Usuário</Text>
       <TextInput
+        style={styles.input}
         placeholder="Nome"
         value={formData.nome}
         onChangeText={(value) => setFormData({ ...formData, nome: value })}
       />
       <TextInput
+        style={styles.input}
         placeholder="Email"
         value={formData.email}
         onChangeText={(value) => setFormData({ ...formData, email: value })}
       />
       <TextInput
+        style={styles.input}
         placeholder="Senha"
         value={formData.senha}
         onChangeText={(value) => setFormData({ ...formData, senha: value })}
         secureTextEntry
       />
       <TextInput
+        style={styles.input}
         placeholder="Confirmação de Senha"
         value={formData.confirmarSenha}
         onChangeText={(value) => setFormData({ ...formData, confirmarSenha: value })}
@@ -73,3 +77,28 @@ export default function Cadastro() {
     </View>
   );
 }
+
+const styles = {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#55b3d1', 
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#f17064', 
+  },
+  input: {
+    width: '80%',
+    height: 40,
+    borderColor: '#fff',
+    borderWidth: 1,
+    marginBottom: 15,
+    paddingLeft: 10,
+    borderRadius: 5,
+    backgroundColor: '#fff',
+  },
+};

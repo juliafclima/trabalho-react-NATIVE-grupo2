@@ -14,6 +14,11 @@ export const Home = ({ navigation }) => {
           Ir para integrantes
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate("Login")}>
+        <Text>
+          Sair
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
