@@ -159,9 +159,11 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   preco: {
-    fontSize: 14,
+    fontSize: 19,
     fontWeight: 'bold',
     marginTop: 5,
+    textAlign: 'center',
+    color: 'white'
   },
   botaoTextoDescricao: {
     fontSize: 18,

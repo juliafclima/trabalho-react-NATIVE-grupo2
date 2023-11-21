@@ -5,7 +5,7 @@ const produtos = [
   {
     id: 1,
     titulo: 'COMPRIMIDOS FOCU',
-    
+    preco: 15.99,
     imagem: require('../../assets/produtos/focu.jpg'),
   },
   {
@@ -37,6 +37,12 @@ const produtos = [
 export const Produtos = ({ navigation }) => {
   const [quantidades, setQuantidades] = useState(produtos.map(() => 0));
 
+  const handleQuantityChange = (index, amount) => {
+    const novasQuantidades = [...quantidades];
+    novasQuantidades[index] = Math.max(0, novasQuantidades[index] + amount);
+    setQuantidades(novasQuantidades);
+  };
+
   return (
     <ScrollView
       contentContainerStyle={estilos.scrollView}
@@ -47,8 +53,6 @@ export const Produtos = ({ navigation }) => {
           <Image source={produto.imagem} style={estilos.imagem} />
           <Text style={estilos.titulo}>{produto.titulo}</Text>
           <Text style={estilos.preco}>R$ {produto.preco.toFixed(2)}</Text>
-          <View style={estilos.containerQuantidade}>
-          </View>
           <TouchableOpacity activeOpacity={0.7}
             onPress={() => navigation.navigate("DetalhesProdutos")}
             style={estilos.botaoSaibaMais}
@@ -97,6 +101,11 @@ const estilos = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     marginTop: 5,
+  },
+  botaoTexto: {
+    fontSize: 18,
+    color: 'white',
+    textAlign: 'center'
   },
   botaoTextoDescricao: {
     fontSize: 12,
