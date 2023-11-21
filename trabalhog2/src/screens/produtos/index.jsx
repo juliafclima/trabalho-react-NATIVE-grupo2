@@ -5,7 +5,7 @@ const produtos = [
   {
     id: 1,
     titulo: 'COMPRIMIDOS FOCU',
-    preco: 15.99,
+    
     imagem: require('../../assets/produtos/focu.jpg'),
   },
   {
@@ -13,6 +13,12 @@ const produtos = [
     titulo: 'PÍLULAS ZOOM',
     preco: 20.99,
     imagem: require('../../assets/produtos/zoom.jpg'),
+  },
+   {
+    id: 5,
+    titulo: 'SACHÊ DO SONO',
+    preco: 20.99,
+    imagem: require('../../assets/produtos/sono.jpg'),
   },
   {
     id: 3,
@@ -26,22 +32,10 @@ const produtos = [
     preco: 20.99,
     imagem: require('../../assets/produtos/travaLingua.jpg'),
   },
-  {
-    id: 5,
-    titulo: 'SACHÊ DO SONO',
-    preco: 20.99,
-    imagem: require('../../assets/produtos/sono.jpg'),
-  },
 ];
 
-export const Produtos = () => {
+export const Produtos = ({ navigation }) => {
   const [quantidades, setQuantidades] = useState(produtos.map(() => 0));
-
-  const handleQuantityChange = (index, amount) => {
-    const novasQuantidades = [...quantidades];
-    novasQuantidades[index] = Math.max(0, novasQuantidades[index] + amount);
-    setQuantidades(novasQuantidades);
-  };
 
   return (
     <ScrollView
@@ -54,36 +48,9 @@ export const Produtos = () => {
           <Text style={estilos.titulo}>{produto.titulo}</Text>
           <Text style={estilos.preco}>R$ {produto.preco.toFixed(2)}</Text>
           <View style={estilos.containerQuantidade}>
-            <View style={estilos.containerBotoesQuantidade}>
-              <TouchableOpacity activeOpacity={0.7}
-                onPress={() => handleQuantityChange(index, -1)}
-                style={estilos.botaoQuantidade}
-              >
-                <Text style={estilos.botaoTexto}>-</Text>
-              </TouchableOpacity>
-              <Text style={estilos.quantidade}>{quantidades[index]}</Text>
-              <TouchableOpacity activeOpacity={0.7}
-                onPress={() => handleQuantityChange(index, 1)}
-                style={estilos.botaoQuantidade}
-              >
-                <Text style={estilos.botaoTexto}>+</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={estilos.containerBotaoComprar}>
-              <TouchableOpacity activeOpacity={0.7}
-                onPress={() => {
-                  console.log(`Comprar ${quantidades[index]} unidades de ${produto.titulo}`);
-                }}
-                style={estilos.botaoComprar}
-              >
-                <Text style={estilos.botaoTexto}>Comprar</Text>
-              </TouchableOpacity>
-            </View>
           </View>
           <TouchableOpacity activeOpacity={0.7}
-            onPress={() => {
-              console.log(`Saiba mais sobre ${produto.titulo}`);
-            }}
+            onPress={() => navigation.navigate("DetalhesProdutos")}
             style={estilos.botaoSaibaMais}
           >
             <Text style={estilos.botaoTextoDescricao}>Saiba Mais</Text>
@@ -108,7 +75,7 @@ const estilos = StyleSheet.create({
     padding: 10,
     margin: 10,
     width: '95%',
-    height: 500,
+    height: 420,
     alignItems: 'center',
   },
   imagem: {
@@ -131,44 +98,10 @@ const estilos = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 5,
   },
-  containerQuantidade: {
-    marginTop: 10,
-  },
-  containerBotoesQuantidade: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  botaoQuantidade: {
-    backgroundColor: '#55b3d1',
-    borderRadius: 5,
-    width: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 5,
-  },
-  containerBotaoComprar: {
-    marginTop: 10,
-  },
-  botaoComprar: {
-    backgroundColor: '#4CAF50',
-    borderRadius: 5,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    marginHorizontal: 5,
-  },
-  botaoTexto: {
-    fontSize: 18,
-    color: 'white',
-    textAlign: 'center'
-  },
   botaoTextoDescricao: {
     fontSize: 12,
     color: 'white',
     textAlign: 'center'
-  },
-  quantidade: {
-    marginHorizontal: 10,
-    fontSize: 16,
   },
   botaoSaibaMais: {
     backgroundColor: '#55b3d1',
