@@ -259,11 +259,11 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
         <Text style={styles.subtitle2}>{detalhes}</Text>
 
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.botao}>
             <Text style={styles.botaoTexto}>Editar</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.botao}>
+          <TouchableOpacity activeOpacity={0.8} style={styles.botao}>
             <Text style={styles.botaoTexto}>Apagar</Text>
           </TouchableOpacity>
         </View>

@@ -14,7 +14,7 @@ const produtos = [
     preco: 20.99,
     imagem: require('../../assets/produtos/zoom.jpg'),
   },
-   {
+  {
     id: 5,
     titulo: 'SACHÊ DO SONO',
     preco: 20.99,
@@ -48,12 +48,20 @@ export const Produtos = ({ navigation }) => {
       contentContainerStyle={estilos.scrollView}
       showsVerticalScrollIndicator={false}
     >
+
+      <TouchableOpacity activeOpacity={0.8}
+        onPress={() => navigation.navigate("CadastrarProdutos")}
+        style={estilos.botaoCadastrar}
+      >
+        <Text style={estilos.botaoTexto}>Cadastrar Novo Produto</Text>
+      </TouchableOpacity>
+
       {produtos.map((produto, index) => (
         <View style={estilos.card} key={produto.id}>
           <Image source={produto.imagem} style={estilos.imagem} />
           <Text style={estilos.titulo}>{produto.titulo}</Text>
           <Text style={estilos.preco}>R$ {produto.preco.toFixed(2)}</Text>
-          <TouchableOpacity activeOpacity={0.7}
+          <TouchableOpacity activeOpacity={0.8}
             onPress={() => navigation.navigate("DetalhesProdutos")}
             style={estilos.botaoSaibaMais}
           >
@@ -120,6 +128,13 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 10,
     opacity: 0.9,
   },
-
+  botaoCadastrar: {
+    backgroundColor: '#ffb25f',
+    borderRadius: 5,
+    marginTop: 10,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    opacity: 0.9,
+    alignSelf: 'flex-start',
+  },
 });
-
