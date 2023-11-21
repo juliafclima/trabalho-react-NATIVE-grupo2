@@ -1,29 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Button, Linking } from 'react-native';
 
 export const Integrantes = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Integrantes</Text>
-    </View>
-  );
-};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
-
-/*import React from 'react';
-import { ScrollView, StyleSheet, Linking, TouchableOpacity } from 'react-native';
-import { Card, Image, Text } from 'react-native-elements';
-
-export const Integrantes = () => {
   const membros = [
     {
       nome: 'HEVELISE DIAS DO CARMO',
-      foto: require('../../assets/integrantes/liz.jpg'), 
+      foto: require('../../assets/integrantes/liz.jpg'),
       descricao: "Completamente louco mas um louco consciente",
     },
     {
@@ -46,9 +28,9 @@ export const Integrantes = () => {
     },
     {
       nome: 'PEDRO HORÁCIO SAURINO FILHO',
-      foto: 'URL_DA_FOTO_2',
+      foto: require('../../assets/integrantes/Pedro-Horacio.png'),
       linkedin: 'https://github.com/Pedroh88',
-      descricao: 'Descrição do membro 2.',
+      descricao: "Eu não tenho mais vida social, tenho apenas uma API de amigos!",
     },
     {
       nome: 'PAULO JEFERSON WERNER DE ALCÂNTARA',
@@ -56,29 +38,26 @@ export const Integrantes = () => {
       linkedin: 'https://github.com/Paulo-Jeferson',
       descricao: "“Na vida, não existe nada a temer, mas a entender.” - Marie Curie",
     },
-    
   ];
 
-  return (
-    <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
-      {membros.map((membro, index) => (
-        <Card key={index} containerStyle={styles.card}>
-          <Image source={{ uri: membro.foto }} style={styles.image} />
-          <Text style={[styles.text, { fontSize: 20, fontWeight: 'bold', textAlign: 'center' }]}>
-            {membro.nome}
-          </Text>
-          <Text style={[styles.text, { fontStyle: 'italic', textAlign: 'center', marginHorizontal: 10 }]}>
-            {membro.descricao}
-          </Text>
+  const handleLinkedInPress = (linkedin) => {
+    Linking.openURL(linkedin);
+  };
 
-          <TouchableOpacity
-            onPress={() => Linking.openURL(membro.linkedin)}
-            style={[styles.linkedinButton, { backgroundColor: '#477CFF' }]}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.linkedinButtonText}>LinkedIn</Text>
-          </TouchableOpacity>
-        </Card>
+  return (
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false} >
+      {membros.map((membro, index) => (
+        <View key={index} style={styles.containerMembro}>
+          <Image source={membro.foto} style={styles.imagemMembro} />
+          <Text style={styles.nomeMembro}>{membro.nome}</Text>
+          <Text style={styles.descricaoMembro}>{membro.descricao}</Text>
+          {membro.linkedin && (
+            <Button
+              title="LinkedIn"
+              onPress={() => handleLinkedInPress(membro.linkedin)}
+            />
+          )}
+        </View>
       ))}
     </ScrollView>
   );
@@ -87,40 +66,31 @@ export const Integrantes = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EEEFF4',
-    alignItems: 'center',
-    paddingVertical: 20,
+    backgroundColor: '#fff',
   },
-  card: {
-    width: '80%',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderRadius: 10,
+  titulo: {
+    fontSize: 24,
+    fontWeight: 'bold',
     marginBottom: 20,
   },
-  linkedinButton: {
-    marginVertical: 10,
-    padding: 10,
-    width: '70%', 
-    borderRadius: 5,
-    alignSelf: 'center', 
+  containerMembro: {
+    marginBottom: 20,
   },
-  linkedinButtonText: {
-    color: '#FFF',
-    textAlign: 'center',
+  imagemMembro: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
-  image: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'cover',
-    borderRadius: 10,
-    alignSelf: 'center',
-    marginVertical: 20,
-    alignItems: 'center', 
+  nomeMembro: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
   },
-  text: {
-    marginVertical: 5,
-    color: '#F17064',
+  descricaoMembro: {
+    marginTop: 10,
+  },
+  linkedInMembro: {
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
 });
- */
