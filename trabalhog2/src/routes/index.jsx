@@ -82,6 +82,7 @@ import { Login } from '../screens/login';
 import { Produtos } from '../screens/produtos';
 import { Integrantes } from '../screens/integrantes';
 import { DetalhesProdutos } from '../screens/detalhesprodutos';
+import Cadastro from '../screens/cadastro';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -94,17 +95,21 @@ export const Rotas = () => {
           component={Login}
           options={{ headerShown: false }} />
         <Screen
+          name='Cadastro'
+          component={Cadastro}
+          options={{ headerShown: false }} />
+        <Screen
           name='Home'
           component={Home}
           options={{ title: 'Página Principal' }} />
         <Screen
-          name='Produtos'
-          component={Produtos}
-          options={{ title: 'Produtos' }} />
-        <Screen
           name='DetalhesProdutos'
           component={DetalhesProdutos}
           options={{ title: 'Detalhes dos produtos' }} />
+      <Screen
+        name='Produtos'
+        component={Produtos}
+        options={{ title: 'Produtos' }} />
         <Screen
           name='Integrantes'
           component={Integrantes}
