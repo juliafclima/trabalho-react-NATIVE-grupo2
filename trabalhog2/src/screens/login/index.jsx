@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+// Importei o ActivityIndicator e o Snackbar do react-native-paper
+import { ActivityIndicator, Snackbar } from 'react-native-paper';
 
 export const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,14 +11,20 @@ export const Login = () => {
     senha: '',
   });
 
+  // Adicionei um novo estado para controlar quando o indicador de atividade deve ser exibido
   const [loading, setLoading] = useState(false);
+  // Adicionei estados para controlar a visibilidade e a mensagem do Snackbar
+  const [visible, setVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const navigation = useNavigation();
 
   const authenticateUser = async (email, senha) => {
-    try {
-      setLoading(true);
 
+    // Aqui está ativando o indicador de atividade antes de iniciar a chamada da API
+    setLoading(true);
+
+    try {
       const response = await axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/login?email=${email}`);
 
       if (response.status === 200) {
@@ -29,18 +37,23 @@ export const Login = () => {
             navigation.navigate('Home');
             setFormData({ email: '', senha: '' });
           } else {
-            Alert.alert('Senha incorreta. Tente novamente.');
+            setErrorMessage('Senha incorreta. Tente novamente.');
+            setVisible(true);
           }
         } else {
-          Alert.alert('Email não encontrado. Verifique as credenciais.');
+          setErrorMessage('Email não encontrado. Verifique as credenciais.');
+          setVisible(true);
         }
       } else {
-        Alert.alert('Erro ao buscar usuário. Tente novamente mais tarde.');
+        setErrorMessage('Erro ao buscar usuário. Tente novamente mais tarde.');
+        setVisible(true);
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-      Alert.alert('Erro ao fazer login. Tente novamente mais tarde.');
+      setErrorMessage('Erro ao fazer login. Tente novamente mais tarde.');
+      setVisible(true);
     } finally {
+      //Aqui está a desativação do indicador de atividade após a chamada da API ser concluída
       setLoading(false);
     }
   };
@@ -76,6 +89,24 @@ export const Login = () => {
           disabled={loading}>
           <Text style={styles.btnText}>Entrar</Text>
         </TouchableOpacity>
+
+        {/* Adicionei o ActivityIndicator que é exibido quando loading é true */}
+        {loading && <ActivityIndicator animating={true} size="large" color="#0000ff" />}
+        {/* Adicionei o Snackbar que é exibido quando visible é true */}
+        <Snackbar
+        // https://callstack.github.io/react-native-paper/docs/components/Snackbar
+          visible={visible}
+          onDismiss={() => setVisible(false)}
+          action={{
+            label: 'Fechar',
+            onPress: () => {
+              setVisible(false);
+            },
+          }}
+          style={{ backgroundColor: 'red' }}
+        >
+          {errorMessage}
+        </Snackbar>
 
         <TouchableOpacity
           onPress={goToCadastro}
