@@ -64,6 +64,7 @@ export default function Cadastro() {
       });
 
       if (response.status === 201) {
+        Alert.alert('Cadastro bem-sucedido!'); // Alerta quando o cadastro é bem-sucedido
         navigation.navigate('Login');
       } else {
         setErrorMessage('Erro ao cadastrar usuário. Tente novamente mais tarde.');
