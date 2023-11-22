@@ -5,19 +5,19 @@ export const Home = ({ navigation }) => {
     <View style={styles.container}>
       <Image style={{ width: 280, height: 200, resizeMode: 'contain' }} source={require("../../assets/login/Logo-Cod-Farma.png")} />
       <View style={styles.entradas}>
-        <TouchableOpacity style={[styles.botao, { backgroundColor: '#f17064' }]} onPress={() => navigation.navigate("Produtos")}>
+        <TouchableOpacity style={[styles.botao, { backgroundColor: '#55b3d1' }]} onPress={() => navigation.navigate("Produtos")}>
           <Text style={{ color: '#fff' }}>
             Ir para produtos
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.botao, { backgroundColor: '#55b3d1' }]} onPress={() => navigation.navigate("Integrantes")}>
+        <TouchableOpacity style={[styles.botao, { backgroundColor: '#ffb25f' }]} onPress={() => navigation.navigate("Integrantes")}>
           <Text style={{ color: '#fff' }}>
             Ir para integrantes
           </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.saida}>
-      <TouchableOpacity style={[styles.botao, { backgroundColor: '#ffb25f', width: '45%' }]} onPress={() => navigation.navigate("Login")}>
+      <TouchableOpacity style={[styles.botao, { backgroundColor: '#f17064', width: '45%' }]} onPress={() => navigation.navigate("Login")}>
         <Text style={{ color: '#fff' }}>
           Sair
         </Text>
