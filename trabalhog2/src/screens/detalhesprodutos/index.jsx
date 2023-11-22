@@ -80,7 +80,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
         <Text style={styles.subtitle2}>{detalhes}</Text>
 
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <TouchableOpacity activeOpacity={0.8} style={styles.botao}>
+          <TouchableOpacity onPress={() => navigation.navigate('UpdateProdutos')} activeOpacity={0.8} style={styles.botao}>
             <Text style={styles.botaoTexto}>✏️</Text>
           </TouchableOpacity>
 

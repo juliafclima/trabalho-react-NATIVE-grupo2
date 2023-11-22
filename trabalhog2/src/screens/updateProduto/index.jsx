@@ -26,9 +26,16 @@ export const UpdateProdutos = ({ route, navigation }) => {
   }, [id]);
 
   const handleAtualizacao = () => {
+    const precoFloat = parseFloat(preco);
+
+    if (isNaN(precoFloat) || preco.trim() === '') {
+      alert('Por favor, insira um preço válido.');
+      return;
+    }
+
     const data = {
       nome,
-      preco: parseFloat(preco),
+      preco: precoFloat,
       descricao,
       detalhes,
       imagemUrl,
@@ -108,7 +115,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingLeft: 8,
     backgroundColor: '#ffb25f',
-    color: 'white', 
+    color: 'white',
   },
   image: {
     width: 200,
@@ -126,4 +133,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
