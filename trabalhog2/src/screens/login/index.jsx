@@ -126,7 +126,7 @@ export const Login = () => {
           activeOpacity={0.7}
           style={styles.btnRegister}
         >
-          <Text style={styles.registerText}>Criar conta gratuita</Text>
+          <Text style={styles.registerText}>Cadastrar funcionário</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
