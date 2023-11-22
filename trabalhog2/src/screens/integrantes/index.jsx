@@ -146,7 +146,7 @@ export const Integrantes = () => {
             nome: 'PEDRO HORÁCIO SAURINO FILHO',
             foto: require('../../assets/integrantes/Pedro-Horacio.png'),
             linkedin: 'https://github.com/Pedroh88',
-            descricao: "Eu não tenho mais vida social, tenho apenas uma API de amigos!",
+            descricao: "Sem vida social, apenas uma API de amigos!",
           },
           {
             nome: 'PAULO JEFERSON WERNER DE ALCÂNTARA',
