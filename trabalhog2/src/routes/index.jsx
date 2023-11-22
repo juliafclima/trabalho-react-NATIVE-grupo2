@@ -15,18 +15,9 @@ export const Rotas = () => {
   return (
     <NavigationContainer>
       <Navigator>
-        <Screen
-          name='DetalhesProdutos'
-          component={DetalhesProdutos}
-          options={{ title: 'Detalhes dos produtos' }} />
-        <Screen
-          name='Login'
-          component={Login}
-          options={{ headerShown: false }} />
-        <Screen
-          name='Cadastro'
-          component={Cadastro}
-          options={{ headerShown: false }} />
+        
+        
+      
         <Screen
           name='Home'
           component={Home}
@@ -35,6 +26,10 @@ export const Rotas = () => {
           name='Produtos'
           component={Produtos}
           options={{ title: 'Produtos' }} />
+          <Screen
+          name='DetalhesProdutos'
+          component={DetalhesProdutos}
+          options={{ title: 'Detalhes dos produtos' }} />
         <Screen
           name='CadastrarProdutos'
           component={CadastrarProdutos}
@@ -48,6 +43,16 @@ export const Rotas = () => {
           name='Integrantes'
           component={Integrantes}
           options={{ title: 'Integrantes' }} />
+
+<Screen
+          name='Login'
+          component={Login}
+          options={{ headerShown: false }} />
+            <Screen
+          name='Cadastro'
+          component={Cadastro}
+          options={{ headerShown: false }} />
+
       </Navigator>
     </NavigationContainer>
   );
