@@ -4,25 +4,25 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, FlatList }
 const produtos = [
   {
     id: 1,
-    titulo: 'COMPRIMIDOS FOCU',
+    nome: 'COMPRIMIDOS FOCU',
     preco: 15.99,
     imagem: require('../../assets/produtos/focu.jpg'),
   },
   {
     id: 2,
-    titulo: 'PÍLULAS ZOOM',
+    nome: 'PÍLULAS ZOOM',
     preco: 20.99,
     imagem: require('../../assets/produtos/zoom.jpg'),
   },
   {
     id: 5,
-    titulo: 'SACHÊ DO SONO',
+    nome: 'SACHÊ DO SONO',
     preco: 20.99,
     imagem: require('../../assets/produtos/sono.jpg'),
   },
   {
     id: 3,
-    titulo: 'TABLETES XÔ ANSIEDADE',
+    nome: 'TABLETES XÔ ANSIEDADE',
     preco: 15.99,
     imagem: require('../../assets/produtos/xoAnsiedade.jpg'),
   },
