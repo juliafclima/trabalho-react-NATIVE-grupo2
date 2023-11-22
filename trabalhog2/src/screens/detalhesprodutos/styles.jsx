@@ -10,22 +10,12 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
     padding: 15,
     borderRadius: 8,
+    shadowColor: '#000',
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 }
   },
-  cards1: {
-    marginBottom: 30,
-    padding: 15,
-    backgroundColor: "white",
-  },
-  cards2: {
-    marginBottom: 30,
-    padding: 15,
-    backgroundColor: "white",
-  },
-  cards3: {
-    marginBottom: 30,
-    padding: 15,
-    backgroundColor: "white",
-  },
+
   title: {
     fontSize: 16,
     fontWeight: "bold",
@@ -59,6 +49,10 @@ export const styles = StyleSheet.create({
     opacity: 0.9,
     marginRight: 5,
     marginBottom: 10,
+    shadowColor: '#000',
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 }
   },
   preco: {
     fontSize: 14,
@@ -70,11 +64,14 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: "white",
     textAlign: "center",
+
+    
   },
 
   foto: {
     resizeMode: "cover",
     borderRadius: 5,
+    
   },
 
   fundo: {

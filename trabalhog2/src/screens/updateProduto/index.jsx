@@ -1,44 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
-export const CadastrarProdutos = () => {
+export const UpdateProdutos = ({ route, navigation }) => {
+  const { id } = route.params;
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [descricao, setDescricao] = useState('');
   const [detalhes, setDetalhes] = useState('');
   const [imagemUrl, setImagemUrl] = useState('');
 
-  const handleCadastro = (callback) => {
-    console.log('Nome:', nome);
-    console.log('Preço:', preco);
-    console.log('Descrição:', descricao);
-    console.log('Detalhes:', detalhes);
-    console.log('Imagem URL:', imagemUrl);
-
-    if (typeof callback === 'function') {
-      callback({
-        nome,
-        preco,
-        descricao,
-        detalhes,
-        imagemUrl,
+  useEffect(() => {
+    axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
+      .then(response => {
+        const produto = response.data;
+        setNome(produto.nome);
+        setPreco(produto.preco.toString());
+        setDescricao(produto.descricao);
+        setDetalhes(produto.detalhes);
+        setImagemUrl(produto.imagemUrl);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar detalhes do produto:', error);
       });
+  }, [id]);
+
+  const handleAtualizacao = () => {
+    const precoFloat = parseFloat(preco);
+
+    if (isNaN(precoFloat) || preco.trim() === '') {
+      alert('Por favor, insira um preço válido.');
+      return;
     }
-  };
-  
-  const addProduto = (data) => {
-    axios
-      .post("https://6542dfe001b5e279de1fabce.mockapi.io/produto", data)
+
+    const data = {
+      nome,
+      preco: precoFloat,
+      descricao,
+      detalhes,
+      imagemUrl,
+    };
+
+    axios.put(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`, data)
       .then(() => {
-        console.log('Deu certo!');
-        reset();
-        navigate('/Produtos');
+        console.log('Produto atualizado com sucesso!');
+        navigation.navigate('Produtos');
       })
       .catch(() => {
-        alert('Deu errado!');
+        alert('Erro ao atualizar o produto!');
       });
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -83,9 +94,9 @@ export const CadastrarProdutos = () => {
       <TouchableOpacity
         activeOpacity={0.8}
         style={{ ...styles.button }}
-        onPress={() => handleCadastro(addProduto)}
+        onPress={handleAtualizacao}
       >
-        <Text style={styles.buttonText}>Cadastrar</Text>
+        <Text style={styles.buttonText}>Atualizar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -95,15 +106,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#009bbf',
+    backgroundColor: '#55b3d1',
   },
   input: {
     height: 40,
-    borderColor: '#fff',
+    borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 12,
     paddingLeft: 8,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffb25f',
+    color: 'white',
   },
   image: {
     width: 200,
@@ -119,7 +131,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
   },
 });
-

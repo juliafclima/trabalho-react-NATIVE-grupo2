@@ -28,20 +28,13 @@ const produtos = [
   },
   {
     id: 4,
-    titulo: 'COMPRIMIDOS TRAVA-LÍNGUA',
+    nome: 'COMPRIMIDOS TRAVA-LÍNGUA',
     preco: 20.99,
     imagem: require('../../assets/produtos/travaLingua.jpg'),
   },
 ];
 
 export const Produtos = ({ navigation }) => {
-  const [quantidades, setQuantidades] = useState(produtos.map(() => 0));
-
-  const handleQuantityChange = (index, amount) => {
-    const novasQuantidades = [...quantidades];
-    novasQuantidades[index] = Math.max(0, novasQuantidades[index] + amount);
-    setQuantidades(novasQuantidades);
-  };
 
   return (
     <ScrollView
@@ -60,7 +53,7 @@ export const Produtos = ({ navigation }) => {
         renderItem={({ item }) => (
           <View style={estilos.card} key={item.id}>
             <Image source={item.imagem} style={estilos.imagem} />
-            <Text style={estilos.titulo}>{item.titulo}</Text>
+            <Text style={estilos.titulo}>{item.nome}</Text>
             <Text style={estilos.preco}>R$ {item.preco.toFixed(2)}</Text>
             <TouchableOpacity activeOpacity={0.8}
               onPress={() => navigation.navigate("DetalhesProdutos")}
@@ -76,7 +69,7 @@ export const Produtos = ({ navigation }) => {
 
 const estilos = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#f17064',
+    backgroundColor: '#55b3d1',
     padding: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -128,6 +121,10 @@ const estilos = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     opacity: 0.9,
+    shadowColor: '#000',
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 }
   },
   botaoCadastrar: {
     backgroundColor: '#ffb25f',

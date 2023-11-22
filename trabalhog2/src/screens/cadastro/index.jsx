@@ -143,10 +143,10 @@ const styles = {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#f17064',
+    color: '#fff',
   },
   input: {
-    width: '80%',
+    width: '90%',
     height: 40,
     borderColor: '#fff',
     borderWidth: 1,
