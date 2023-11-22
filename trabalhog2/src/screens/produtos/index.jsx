@@ -76,7 +76,7 @@ export const Produtos = ({ navigation }) => {
 
 const estilos = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#f17064',
+    backgroundColor: '#55b3d1',
     padding: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
