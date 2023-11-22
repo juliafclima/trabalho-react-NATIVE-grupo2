@@ -107,7 +107,7 @@ export const Login = () => {
         {loading && <ActivityIndicator animating={true} size="large" color="#0000ff" />}
         {/* Adicionei o Snackbar que é exibido quando visible é true */}
         <Snackbar
-        // https://callstack.github.io/react-native-paper/docs/components/Snackbar
+          // https://callstack.github.io/react-native-paper/docs/components/Snackbar
           visible={visible}
           onDismiss={() => setVisible(false)}
           action={{
