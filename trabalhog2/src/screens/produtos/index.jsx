@@ -35,13 +35,6 @@ const produtos = [
 ];
 
 export const Produtos = ({ navigation }) => {
-  const [quantidades, setQuantidades] = useState(produtos.map(() => 0));
-
-  const handleQuantityChange = (index, amount) => {
-    const novasQuantidades = [...quantidades];
-    novasQuantidades[index] = Math.max(0, novasQuantidades[index] + amount);
-    setQuantidades(novasQuantidades);
-  };
 
   return (
     <ScrollView
