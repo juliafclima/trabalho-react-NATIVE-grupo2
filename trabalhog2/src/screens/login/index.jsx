@@ -20,6 +20,19 @@ export const Login = () => {
   const navigation = useNavigation();
 
   const authenticateUser = async (email, senha) => {
+    // Aqui está verificando se o email e a senha são válidos
+    try {
+      if (!email || !email.includes('@')) {
+        throw new Error('Por favor, insira um email válido!');
+      }
+      if (!senha || senha.length < 6) {
+        throw new Error('A senha deve ter pelo menos 6 caracteres!');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+      setVisible(true);
+      return;
+    }
 
     // Aqui está ativando o indicador de atividade antes de iniciar a chamada da API
     setLoading(true);
