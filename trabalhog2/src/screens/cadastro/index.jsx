@@ -147,6 +147,7 @@ const styles = {
   },
   input: {
     width: '90%',
+    color: '#55b3d1',
     height: 40,
     borderColor: '#fff',
     borderWidth: 1,
