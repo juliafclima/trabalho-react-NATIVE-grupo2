@@ -28,7 +28,7 @@ const produtos = [
   },
   {
     id: 4,
-    titulo: 'COMPRIMIDOS TRAVA-LÍNGUA',
+    nome: 'COMPRIMIDOS TRAVA-LÍNGUA',
     preco: 20.99,
     imagem: require('../../assets/produtos/travaLingua.jpg'),
   },
@@ -53,7 +53,7 @@ export const Produtos = ({ navigation }) => {
         renderItem={({ item }) => (
           <View style={estilos.card} key={item.id}>
             <Image source={item.imagem} style={estilos.imagem} />
-            <Text style={estilos.titulo}>{item.titulo}</Text>
+            <Text style={estilos.titulo}>{item.nome}</Text>
             <Text style={estilos.preco}>R$ {item.preco.toFixed(2)}</Text>
             <TouchableOpacity activeOpacity={0.8}
               onPress={() => navigation.navigate("DetalhesProdutos")}
