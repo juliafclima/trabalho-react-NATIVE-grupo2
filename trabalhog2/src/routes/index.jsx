@@ -5,8 +5,8 @@ import { Drawer } from './drawer';
 export const Rotas = () => {
   return (
     <NavigationContainer>
-      <Tab />
       {/* <Drawer /> */}
+      <Tab />
     </NavigationContainer>
   );
 };

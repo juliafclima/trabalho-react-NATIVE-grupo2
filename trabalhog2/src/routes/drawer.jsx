@@ -1,6 +1,6 @@
-/* import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Home } from '../screens/Home';
+import { Tab } from './tab';
 
 const { Navigator, Screen } = createDrawerNavigator();
 
@@ -9,11 +9,10 @@ export const Drawer = () => {
     <NavigationContainer>
       <Navigator>
         <Screen
-          name='Home'
-          component={Home}
+          name='Tab'
+          component={Tab}
         />
       </Navigator>
     </NavigationContainer>
   );
 };
- */

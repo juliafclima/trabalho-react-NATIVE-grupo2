@@ -1,9 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
-import { Home } from "../screens/Home";
-import { Login } from "../screens/login";
-import Cadastro from "../screens/cadastro";
 import { Produtos } from "../screens/produtos";
 import { Integrantes } from "../screens/integrantes";
 import { Stack } from "./stack";
