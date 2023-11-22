@@ -128,6 +128,10 @@ const estilos = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     opacity: 0.9,
+    shadowColor: '#000',
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 }
   },
   botaoCadastrar: {
     backgroundColor: '#ffb25f',
