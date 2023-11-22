@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet,Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 // Importei o ActivityIndicator e o Snackbar do react-native-paper
