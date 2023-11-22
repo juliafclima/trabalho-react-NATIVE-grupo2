@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Feather } from "@expo/vector-icons";
+import { Feather, Entypo, Fontisto } from "@expo/vector-icons";
 import { Produtos } from "../screens/produtos";
 import { Integrantes } from "../screens/integrantes";
 import { Stack } from "./stack";
@@ -33,7 +33,7 @@ export const Tab = () => {
           tabBarLabel: "Produtos",
           header: () => null,
           tabBarIcon: ({ color, size }) => (
-            <Feather name="home" size={size} color={color} />
+            <Entypo name="shop" size={size} color={color} />
           ),
         }}
       />
@@ -43,7 +43,7 @@ export const Tab = () => {
         options={{
           tabBarLabel: "Integrantes",
           tabBarIcon: ({ color, size }) => (
-            <Feather name="home" size={size} color={color} />
+            <Fontisto name="persons" size={size} color={color} />
           ),
         }}
       />
