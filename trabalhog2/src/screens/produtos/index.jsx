@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
 const produtos = [
   {
@@ -55,20 +55,21 @@ export const Produtos = ({ navigation }) => {
       >
         <Text style={estilos.botaoTexto}>Cadastrar Novo Produto</Text>
       </TouchableOpacity>
-
-      {produtos.map((produto, index) => (
-        <View style={estilos.card} key={produto.id}>
-          <Image source={produto.imagem} style={estilos.imagem} />
-          <Text style={estilos.titulo}>{produto.titulo}</Text>
-          <Text style={estilos.preco}>R$ {produto.preco.toFixed(2)}</Text>
-          <TouchableOpacity activeOpacity={0.8}
-            onPress={() => navigation.navigate("DetalhesProdutos")}
-            style={estilos.botaoSaibaMais}
-          >
-            <Text style={estilos.botaoTextoDescricao}>Saiba Mais</Text>
-          </TouchableOpacity>
-        </View>
-      ))}
+      <FlatList data={produtos}
+        keyExtractor={(index) => index.toString()}
+        renderItem={({ item }) => (
+          <View style={estilos.card} key={item.id}>
+            <Image source={item.imagem} style={estilos.imagem} />
+            <Text style={estilos.titulo}>{item.titulo}</Text>
+            <Text style={estilos.preco}>R$ {item.preco.toFixed(2)}</Text>
+            <TouchableOpacity activeOpacity={0.8}
+              onPress={() => navigation.navigate("DetalhesProdutos")}
+              style={estilos.botaoSaibaMais}
+            >
+              <Text style={estilos.botaoTextoDescricao}>Saiba Mais</Text>
+            </TouchableOpacity>
+          </View>
+        )} />
     </ScrollView>
   );
 };
