@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
-  ScrollView,
   TouchableOpacity,
   View,
-  StyleSheet,
   Text,
+  FlatList,
 } from "react-native";
 import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
-import {styles} from "./styles";
+import { styles } from "./styles";
+import axios from 'axios';
+import { useFocusEffect } from "@react-navigation/core";
 
 const produtos = [
   {
@@ -80,29 +81,36 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
         <Text style={styles.subtitle2}>{detalhes}</Text>
 
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <TouchableOpacity onPress={() => navigation.navigate('UpdateProdutos')} activeOpacity={0.8} style={styles.botao}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('UpdateProdutos')}
+            activeOpacity={0.8}
+            style={styles.botao}
+          >
             <Text style={styles.botaoTexto}>✏️</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={styles.botao} onPress={() => deleteProduto(produto.id)}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.botao}
+            onPress={() => deleteProduto(produto.id)} // Certifique-se de implementar deleteProduto
+          >
             <Text style={styles.botaoTexto}>🗑️</Text>
           </TouchableOpacity>
-
-          
         </View>
       </View>
     </Card>
   );
 };
 
-export const DetalhesProdutos = () => (
-  <ScrollView
-    contentContainerStyle={styles.container}
-    showsVerticalScrollIndicator={false}
-  >
-    {produtos.map((produto, index) => (
-      <DetalheProduto key={index} index={index} {...produto} />
-    ))}
-  </ScrollView>
-);
 
+export const DetalhesProdutos = () => (
+
+  <FlatList
+    data={produtos}
+    keyExtractor={(item, index) => index.toString()}
+    renderItem={({ item, index }) => (
+      <DetalheProduto {...item} index={index} />
+    )}
+    showsVerticalScrollIndicator={false}
+  />
+);

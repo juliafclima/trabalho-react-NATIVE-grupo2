@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, FlatList } from 'react-native';
+import axios from 'axios';
+import { useFocusEffect } from "@react-navigation/core";
 
 const produtos = [
   {
@@ -36,6 +38,26 @@ const produtos = [
 
 export const Produtos = ({ navigation }) => {
 
+  const [produtos, setProdutos] = useState([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      getProdutos();
+    }, [])
+  );
+
+  const getProdutos = () => {
+
+    axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto`)
+      .then(response => {
+        setProdutos(response.data);
+        console.log('teste '+response.data)
+      })
+      .catch(error => {
+        console.error('Erro ao buscar detalhes do produto:', error);
+      });
+  };
+
   return (
     <ScrollView
       contentContainerStyle={estilos.scrollView}
@@ -51,10 +73,13 @@ export const Produtos = ({ navigation }) => {
       <FlatList data={produtos}
         keyExtractor={(index) => index.toString()}
         renderItem={({ item }) => (
+
           <View style={estilos.card} key={item.id}>
+
             <Image source={item.imagem} style={estilos.imagem} />
             <Text style={estilos.titulo}>{item.nome}</Text>
-            <Text style={estilos.preco}>R$ {item.preco.toFixed(2)}</Text>
+            <Text style={estilos.preco}>R$ {item.preco}</Text>
+
             <TouchableOpacity activeOpacity={0.8}
               onPress={() => navigation.navigate("DetalhesProdutos")}
               style={estilos.botaoSaibaMais}

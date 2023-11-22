@@ -1,15 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from '../screens/home';
-import { Login } from '../screens/login';
-import { Produtos } from '../screens/produtos';
-import { Integrantes } from '../screens/integrantes';
-import { DetalhesProdutos } from '../screens/detalhesprodutos';
-import Cadastro from '../screens/cadastro';
-import { CadastrarProdutos } from '../screens/cadastrarProdutos';
-import { UpdateProdutos } from '../screens/updateProduto';
-
-const { Navigator, Screen } = createNativeStackNavigator();
+import { Tab } from './tab';
+import { Drawer } from './drawer';
 
 export const Rotas = () => {
   return (

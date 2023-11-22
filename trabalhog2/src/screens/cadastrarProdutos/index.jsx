@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
-export const CadastrarProdutos = () => {
+export const CadastrarProdutos = ({ navigation }) => {
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [descricao, setDescricao] = useState('');
@@ -26,19 +26,18 @@ export const CadastrarProdutos = () => {
       });
     }
   };
-  
+
   const addProduto = (data) => {
     axios
       .post("https://6542dfe001b5e279de1fabce.mockapi.io/produto", data)
       .then(() => {
         console.log('Deu certo!');
-        reset();
-        navigate('/Produtos');
+        navigation.navigate('Produtos');
       })
       .catch(() => {
         alert('Deu errado!');
       });
-  }
+  };
 
   return (
     <View style={styles.container}>
