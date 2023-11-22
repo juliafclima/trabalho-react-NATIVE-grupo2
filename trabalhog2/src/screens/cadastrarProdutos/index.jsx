@@ -95,15 +95,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#55b3d1',
+    backgroundColor: '#009bbf',
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#fff',
     borderWidth: 1,
     marginBottom: 12,
     paddingLeft: 8,
-    backgroundColor: '#ffb25f',
+    backgroundColor: '#fff',
   },
   image: {
     width: 200,
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: 16,
   },
 });
 
