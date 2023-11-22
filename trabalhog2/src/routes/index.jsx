@@ -15,6 +15,10 @@ export const Rotas = () => {
     <NavigationContainer>
       <Navigator>
         <Screen
+          name='CadastrarProdutos'
+          component={CadastrarProdutos}
+          options={{ title: 'Cadastro de produtos' }} />
+        <Screen
           name='Login'
           component={Login}
           options={{ headerShown: false }} />
@@ -34,10 +38,6 @@ export const Rotas = () => {
           name='DetalhesProdutos'
           component={DetalhesProdutos}
           options={{ title: 'Detalhes dos produtos' }} />
-        <Screen
-          name='CadastrarProdutos'
-          component={CadastrarProdutos}
-          options={{ title: 'Cadastro de produtos' }} />
         <Screen
           name='Integrantes'
           component={Integrantes}
