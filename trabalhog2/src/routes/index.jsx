@@ -1,12 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { Stack } from './stack';
 import { Tab } from './tab';
+import { Drawer } from './drawer';
 
 export const Rotas = () => {
   return (
     <NavigationContainer>
-      {/* <Stack /> */}
       <Tab />
+      {/* <Drawer /> */}
     </NavigationContainer>
   );
 };

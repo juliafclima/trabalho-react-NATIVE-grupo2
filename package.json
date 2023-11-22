@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "@react-navigation/drawer": "^6.6.6",
     "axios": "^1.6.2",
     "expo-font": "^11.6.0",
+    "react-native-gesture-handler": "~2.12.0",
     "react-native-image-picker": "^7.0.3",
-    "react-native-paper": "^5.11.1"
+    "react-native-paper": "^5.11.1",
+    "react-native-reanimated": "~3.3.0"
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   ScrollView,
   TouchableOpacity,
@@ -8,7 +8,9 @@ import {
 } from "react-native";
 import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
-import {styles} from "./styles";
+import { styles } from "./styles";
+import axios from 'axios';
+import { useFocusEffect } from "@react-navigation/core";
 
 const produtos = [
   {
