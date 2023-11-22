@@ -82,7 +82,7 @@ export default function Cadastro() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cadastro de Usuário</Text>
+      <Text style={styles.title}>Cadastro de Funcionário</Text>
       <TextInput
         style={styles.input}
         placeholder="Nome"

@@ -71,10 +71,6 @@ export const Login = () => {
     }
   };
 
-  const goToCadastro = () => {
-    navigation.navigate('Cadastro');
-  };
-
   return (
     <KeyboardAvoidingView style={styles.background}>
       <View style={styles.containerLogo}>
@@ -121,8 +117,8 @@ export const Login = () => {
           {errorMessage}
         </Snackbar>
 
-        <TouchableOpacity
-          onPress={goToCadastro}
+        <TouchableOpacity 
+          onPress={() => navigation.navigate('Cadastro')}
           activeOpacity={0.7}
           style={styles.btnRegister}
         >
