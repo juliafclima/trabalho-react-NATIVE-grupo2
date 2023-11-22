@@ -7,6 +7,7 @@ import { Integrantes } from '../screens/integrantes';
 import { DetalhesProdutos } from '../screens/detalhesprodutos';
 import Cadastro from '../screens/cadastro';
 import { CadastrarProdutos } from '../screens/cadastrarProdutos';
+import { UpdateProdutos } from '../screens/updateProduto';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -15,9 +16,9 @@ export const Rotas = () => {
     <NavigationContainer>
       <Navigator>
         <Screen
-          name='Home'
-          component={Home}
-          options={{ title: 'Página Principal', headerShown: false }} />
+          name='DetalhesProdutos'
+          component={DetalhesProdutos}
+          options={{ title: 'Detalhes dos produtos' }} />
         <Screen
           name='Login'
           component={Login}
@@ -27,17 +28,22 @@ export const Rotas = () => {
           component={Cadastro}
           options={{ headerShown: false }} />
         <Screen
+          name='Home'
+          component={Home}
+          options={{ title: 'Página Principal', headerShown: false }} />
+        <Screen
           name='Produtos'
           component={Produtos}
           options={{ title: 'Produtos' }} />
         <Screen
-          name='DetalhesProdutos'
-          component={DetalhesProdutos}
-          options={{ title: 'Detalhes dos produtos' }} />
-        <Screen
           name='CadastrarProdutos'
           component={CadastrarProdutos}
           options={{ title: 'Cadastro de produtos' }} />
+        
+        <Screen
+          name='UpdateProdutos'
+          component={UpdateProdutos}
+          options={{ title: 'Editar produto' }} />
         <Screen
           name='Integrantes'
           component={Integrantes}

@@ -80,12 +80,12 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
         <Text style={styles.subtitle2}>{detalhes}</Text>
 
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
-          <TouchableOpacity activeOpacity={0.8} style={styles.botao}>
-            <Text style={styles.botaoTexto}>Editar</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('UpdateProdutos')} activeOpacity={0.8} style={styles.botao}>
+            <Text style={styles.botaoTexto}>✏️</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={styles.botao}>
-            <Text style={styles.botaoTexto}>Apagar</Text>
+          <TouchableOpacity activeOpacity={0.8} style={styles.botao} onPress={() => deleteProduto(produto.id)}>
+            <Text style={styles.botaoTexto}>🗑️</Text>
           </TouchableOpacity>
 
           
