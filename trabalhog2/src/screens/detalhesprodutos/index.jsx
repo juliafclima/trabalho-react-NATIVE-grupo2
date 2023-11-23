@@ -1,10 +1,8 @@
-import {
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
+import React from "react";
+import { TouchableOpacity, View, Text, Alert } from "react-native";
 import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 import { styles } from "./styles";
 
 /* const produtos = [
@@ -60,8 +58,7 @@ const getCardColor = (index) => {
   return colors[index % colors.length];
 };
 
-const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
-
+const DetalheProduto = ({ id, nome, descricao, detalhes, preco, foto, index, onDelete }) => {
   const cardStyle = {
     ...styles.card,
     backgroundColor: getCardColor(index),
@@ -69,25 +66,27 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
 
   const navigation = useNavigation();
 
-  function deleteProduto(id) {
-    axios.delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
-      
-      .then(response => {
-        produtos(produtos.filter(produto => produto.id !== id));
+  const deleteProduto = () => {
+    axios
+      .delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
+      .then(() => {
+        onDelete(id);
+        // Mostra um alerta de sucesso
+        Alert.alert("Produto excluído com sucesso");
+        // Navega de volta para a tela de produtos
+        navigation.navigate('Produtos');
       })
-      .catch(error => {
-        console.error('Erro ao excluir produto: ', error);
+      .catch((error) => {
+        console.error("Erro ao excluir produto: ", error);
+        // Mostra um alerta de erro
+        Alert.alert("Erro ao excluir o produto");
       });
-  }
+  };
 
   return (
     <Card style={cardStyle}>
       <View style={styles.fundo}>
-        <Card.Cover style={styles.foto} source={foto} />
-        <Text style={styles.title}>{nome}</Text>
-        <Text style={styles.preco}>R$ {preco}</Text>
-        <Text style={styles.subtitle}>{descricao}</Text>
-        <Text style={styles.subtitle2}>{detalhes}</Text>
+        {/* Restante do seu código... */}
 
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
           <TouchableOpacity
@@ -101,7 +100,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.botao}
-            onPress={() => deleteProduto(item.id)}
+            onPress={deleteProduto}
           >
             <Text style={styles.botaoTexto}>🗑️</Text>
           </TouchableOpacity>
@@ -120,3 +119,4 @@ export const DetalhesProdutos = ({ route }) => {
     <DetalheProduto {...item} />
   );
 };
+

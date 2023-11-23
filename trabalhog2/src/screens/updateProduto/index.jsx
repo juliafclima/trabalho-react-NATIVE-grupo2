@@ -3,7 +3,7 @@ import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity } from 'reac
 import axios from 'axios';
 
 export const UpdateProdutos = ({ route, navigation }) => {
-  const { id } = route.params;
+  const productId = route?.params?.id;
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [imagem, setImagem] = useState('');
@@ -12,10 +12,10 @@ export const UpdateProdutos = ({ route, navigation }) => {
   const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
-    axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
+    axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${productId}`)
       .then(response => {
         const produto = response.data;
-        if (produto.nome && produto.preco && produto.imagem && produto.descricao && produto.detalhes) {
+        if (produto && produto.nome && produto.preco && produto.imagem && produto.descricao && produto.detalhes) {
           setNome(produto.nome);
           setPreco(produto.preco);
           setImagem(produto.imagem);
@@ -27,7 +27,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
       .catch(error => {
         console.error('Erro ao buscar detalhes do produto:', error);
       });
-  }, [id, updated]);
+  }, [productId, updated]);
 
   const handleAtualizacao = () => {
     if (!nome.trim() || !descricao.trim() || isNaN(preco)) {
@@ -43,7 +43,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
       imagem,
     };
 
-    axios.put(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`, data)
+    axios.put(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${productId}`, data)
       .then(() => {
         console.log('Produto atualizado com sucesso!');
         setUpdated(true);
