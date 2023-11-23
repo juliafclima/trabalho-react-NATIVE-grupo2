@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, FlatList }
 import axios from 'axios';
 import { useFocusEffect } from "@react-navigation/core";
 
-const produtos = [
+/* const produtos = [
   {
     id: 1,
     nome: 'COMPRIMIDOS FOCU',
@@ -34,7 +34,7 @@ const produtos = [
     preco: 20.99,
     imagem: require('../../assets/produtos/travaLingua.jpg'),
   },
-];
+]; */
 
 export const Produtos = ({ navigation }) => {
 
@@ -51,7 +51,7 @@ export const Produtos = ({ navigation }) => {
     axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto`)
       .then(response => {
         setProdutos(response.data);
-        console.log('teste '+response.data)
+
       })
       .catch(error => {
         console.error('Erro ao buscar detalhes do produto:', error);
@@ -81,7 +81,7 @@ export const Produtos = ({ navigation }) => {
             <Text style={estilos.preco}>R$ {item.preco}</Text>
 
             <TouchableOpacity activeOpacity={0.8}
-              onPress={() => navigation.navigate("DetalhesProdutos")}
+              onPress={() => navigation.navigate("DetalhesProdutos", { item })}
               style={estilos.botaoSaibaMais}
             >
               <Text style={estilos.botaoTextoDescricao}>Saiba Mais</Text>

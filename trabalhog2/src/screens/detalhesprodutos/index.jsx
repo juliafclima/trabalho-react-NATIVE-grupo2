@@ -8,8 +8,6 @@ import {
 import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
-import axios from 'axios';
-import { useFocusEffect } from "@react-navigation/core";
 
 const produtos = [
   {
@@ -63,13 +61,19 @@ const getCardColor = (index) => {
   return colors[index % colors.length];
 };
 
-const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
+const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index, item }) => {
+
   const cardStyle = {
     ...styles.card,
     backgroundColor: getCardColor(index),
   };
 
   const navigation = useNavigation();
+
+  function deleteProduto(id) {
+    axios.delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`);
+    setProduto(produto.filter(produto => produto.id !== id));
+  }
 
   return (
     <Card style={cardStyle}>
@@ -92,7 +96,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.botao}
-            onPress={() => deleteProduto(produto.id)} // Certifique-se de implementar deleteProduto
+            onPress={() => deleteProduto(produto.id)}
           >
             <Text style={styles.botaoTexto}>🗑️</Text>
           </TouchableOpacity>
@@ -103,14 +107,12 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
 };
 
 
-export const DetalhesProdutos = () => (
+export const DetalhesProdutos = ({ route }) => {
 
-  <FlatList
-    data={produtos}
-    keyExtractor={(item, index) => index.toString()}
-    renderItem={({ item, index }) => (
-      <DetalheProduto {...item} index={index} />
-    )}
-    showsVerticalScrollIndicator={false}
-  />
-);
+  const { item } = route.params;
+  console.log(item);
+
+  return (
+    <DetalheProduto {...item}/>
+  );
+};
