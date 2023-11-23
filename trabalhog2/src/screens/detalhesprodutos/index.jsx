@@ -90,7 +90,7 @@ const DetalheProduto = ({ id, nome, descricao, detalhes, preco, foto, index, onD
 
         <View style={{ flexDirection: "row", justifyContent: "center" }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('UpdateProdutos')}
+            onPress={() => navigation.navigate('UpdateProdutos',id)}
             activeOpacity={0.8}
             style={styles.botao}
           >
