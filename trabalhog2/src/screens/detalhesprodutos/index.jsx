@@ -1,17 +1,13 @@
-import React, { useCallback, useState } from "react";
 import {
   TouchableOpacity,
   View,
   Text,
-  FlatList,
 } from "react-native";
 import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
-import axios from 'axios';
-import { useFocusEffect } from "@react-navigation/core";
 
-const produtos = [
+/* const produtos = [
   {
     foto: require("../../assets/produtos/focu.jpg"),
     nome: "COMPRIMIDOS FOCU",
@@ -57,13 +53,15 @@ const produtos = [
       'Com as pílulas "trava-língua" nenhuma palavra sairá da sua boca quando seu nível de estresse estiver alto, evitando sinceridade excessiva. (O produto não tem ação "trava dedos", então cuidado com o que digita)',
   },
 ];
+ */
 
 const getCardColor = (index) => {
   const colors = ["white", "white", "white"];
   return colors[index % colors.length];
 };
 
-const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
+const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
+
   const cardStyle = {
     ...styles.card,
     backgroundColor: getCardColor(index),
@@ -71,12 +69,23 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
 
   const navigation = useNavigation();
 
+  function deleteProduto(id) {
+    axios.delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
+      
+      .then(response => {
+        produtos(produtos.filter(produto => produto.id !== id));
+      })
+      .catch(error => {
+        console.error('Erro ao excluir produto: ', error);
+      });
+  }
+
   return (
     <Card style={cardStyle}>
       <View style={styles.fundo}>
         <Card.Cover style={styles.foto} source={foto} />
         <Text style={styles.title}>{nome}</Text>
-        <Text style={styles.preco}>R$ {preco.toFixed(2)}</Text>
+        <Text style={styles.preco}>R$ {preco}</Text>
         <Text style={styles.subtitle}>{descricao}</Text>
         <Text style={styles.subtitle2}>{detalhes}</Text>
 
@@ -92,7 +101,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.botao}
-            onPress={() => deleteProduto(produto.id)} // Certifique-se de implementar deleteProduto
+            onPress={() => deleteProduto(item.id)}
           >
             <Text style={styles.botaoTexto}>🗑️</Text>
           </TouchableOpacity>
@@ -102,15 +111,12 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index }) => {
   );
 };
 
+export const DetalhesProdutos = ({ route }) => {
 
-export const DetalhesProdutos = () => (
+  const { item } = route.params;
+  console.log(item);
 
-  <FlatList
-    data={produtos}
-    keyExtractor={(item, index) => index.toString()}
-    renderItem={({ item, index }) => (
-      <DetalheProduto {...item} index={index} />
-    )}
-    showsVerticalScrollIndicator={false}
-  />
-);
+  return (
+    <DetalheProduto {...item} />
+  );
+};
