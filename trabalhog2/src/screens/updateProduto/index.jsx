@@ -15,12 +15,14 @@ export const UpdateProdutos = ({ route, navigation }) => {
     axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
       .then(response => {
         const produto = response.data;
-        setNome(produto.nome);
-        setPreco(produto.preco.toString());
-        setImagem(produto.imagem);
-        setDescricao(produto.descricao);
-        setDetalhes(produto.detalhes);
-        setUpdated(false); 
+        if (produto.nome && produto.preco && produto.imagem && produto.descricao && produto.detalhes) {
+          setNome(produto.nome);
+          setPreco(produto.preco);
+          setImagem(produto.imagem);
+          setDescricao(produto.descricao);
+          setDetalhes(produto.detalhes);
+          setUpdated(true);
+        }
       })
       .catch(error => {
         console.error('Erro ao buscar detalhes do produto:', error);
@@ -35,7 +37,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
 
     const data = {
       nome,
-      preco: parseFloat(preco),
+      preco,
       descricao,
       detalhes,
       imagem,
@@ -44,10 +46,11 @@ export const UpdateProdutos = ({ route, navigation }) => {
     axios.put(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`, data)
       .then(() => {
         console.log('Produto atualizado com sucesso!');
-        setUpdated(true); 
+        setUpdated(true);
         navigation.navigate('Produtos');
       })
-      .catch(() => {
+      .catch(error => {
+        console.error('Erro ao atualizar o produto:', error);
         alert('Erro ao atualizar o produto!');
       });
   };
