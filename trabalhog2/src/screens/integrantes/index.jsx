@@ -6,7 +6,7 @@ export const Integrantes = () => {
   const membros = [
     {
             nome: 'HEVELISE DIAS DO CARMO',
-            foto: require('../../assets/integrantes/liz.jpg'), 
+            foto: require('../../assets/integrantes/liz.jpeg'), 
             linkedin: 'https://github.com/Hevelise-Liz',
             descricao: "“Completamente louco mas um louco consciente!”",
           },
