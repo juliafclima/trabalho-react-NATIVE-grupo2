@@ -92,9 +92,9 @@ export const UpdateProdutos = ({ route, navigation }) => {
         value={imagem}
         onChangeText={(text) => setImagem(text)}
       />
-      {imagem ? (
-        <Image source={{ uri: imagem }} style={styles.image} />
-      ) : null}
+
+      <Image source={{ uri: `../../assets/produtos/${imagem}` }} style={styles.image} />
+
       <TouchableOpacity
         activeOpacity={0.8}
         style={{ ...styles.button }}
