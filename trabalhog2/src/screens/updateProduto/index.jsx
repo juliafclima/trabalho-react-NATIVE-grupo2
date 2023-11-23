@@ -6,9 +6,10 @@ export const UpdateProdutos = ({ route, navigation }) => {
   const { id } = route.params;
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
+  const [imagem, setImagem] = useState('');
   const [descricao, setDescricao] = useState('');
   const [detalhes, setDetalhes] = useState('');
-  const [imagemUrl, setImagemUrl] = useState('');
+  const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
     axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
@@ -16,34 +17,34 @@ export const UpdateProdutos = ({ route, navigation }) => {
         const produto = response.data;
         setNome(produto.nome);
         setPreco(produto.preco.toString());
+        setImagem(produto.imagem);
         setDescricao(produto.descricao);
         setDetalhes(produto.detalhes);
-        setImagemUrl(produto.imagemUrl);
+        setUpdated(false); 
       })
       .catch(error => {
         console.error('Erro ao buscar detalhes do produto:', error);
       });
-  }, [id]);
+  }, [id, updated]);
 
   const handleAtualizacao = () => {
-    const precoFloat = parseFloat(preco);
-
-    if (isNaN(precoFloat) || preco.trim() === '') {
-      alert('Por favor, insira um preço válido.');
+    if (!nome.trim() || !descricao.trim() || isNaN(preco)) {
+      alert('Por favor, preencha todos os campos corretamente.');
       return;
     }
 
     const data = {
       nome,
-      preco: precoFloat,
+      preco: parseFloat(preco),
       descricao,
       detalhes,
-      imagemUrl,
+      imagem,
     };
 
     axios.put(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`, data)
       .then(() => {
         console.log('Produto atualizado com sucesso!');
+        setUpdated(true); 
         navigation.navigate('Produtos');
       })
       .catch(() => {
@@ -85,11 +86,11 @@ export const UpdateProdutos = ({ route, navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="URL da Imagem"
-        value={imagemUrl}
-        onChangeText={(text) => setImagemUrl(text)}
+        value={imagem}
+        onChangeText={(text) => setImagem(text)}
       />
-      {imagemUrl ? (
-        <Image source={{ uri: imagemUrl }} style={styles.image} />
+      {imagem ? (
+        <Image source={{ uri: imagem }} style={styles.image} />
       ) : null}
       <TouchableOpacity
         activeOpacity={0.8}

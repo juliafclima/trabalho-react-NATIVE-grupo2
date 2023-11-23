@@ -78,7 +78,7 @@ export const Produtos = ({ navigation }) => {
 
             <Image source={item.imagem} style={estilos.imagem} />
             <Text style={estilos.titulo}>{item.nome}</Text>
-            <Text style={estilos.preco}>R$ {item.preco}</Text>
+            <Text style={estilos.preco}>R$ {parseFloat(item.preco).toFixed(2)}</Text>
 
             <TouchableOpacity activeOpacity={0.8}
               onPress={() => navigation.navigate("DetalhesProdutos", { item })}
