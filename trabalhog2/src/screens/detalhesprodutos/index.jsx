@@ -88,8 +88,10 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
   };
 
   return (
+    <View style={styles.container}>
     <Card style={cardStyle}>
-      <View style={styles.fundo}>
+      <View style={styles.card}>
+        <View style={styles.subCard}>
         <Card.Cover style={styles.foto} source={foto} />
         <Text style={styles.title}>{nome}</Text>
         <Text style={styles.preco}>R$ {preco}</Text>
@@ -113,8 +115,10 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
             <Text style={styles.botaoTexto}>🗑️</Text>
           </TouchableOpacity>
         </View>
-      </View>
+        </View>
+        </View>
     </Card>
+    </View>
   );
 };
 
