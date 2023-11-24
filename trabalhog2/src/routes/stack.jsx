@@ -5,7 +5,7 @@ import { Integrantes } from '../screens/integrantes';
 import { DetalhesProdutos } from '../screens/detalhesprodutos';
 import { CadastrarProdutos } from '../screens/cadastrarProdutos';
 import { UpdateProdutos } from '../screens/updateProduto';
-import { Home } from '../screens/Home';
+import { Home } from '../screens/home';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 

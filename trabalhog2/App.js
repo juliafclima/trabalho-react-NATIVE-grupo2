@@ -1,11 +1,10 @@
 import { Rotas } from "./src/routes";
-// import "react-native-gesture-handler";
 
 export default function App() {
   return <Rotas />;
 }
 
-/* TAG: 4.25.0 */
+/* TAG: 4.26.1 */
 
 // Pressione Ctrl + Shift + P para abrir a paleta de comandos.
 // Digite 'Git: Push Tags' e pressione Enter.
