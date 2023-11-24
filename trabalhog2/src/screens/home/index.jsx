@@ -7,7 +7,7 @@ import {
   Image,
   Alert,
   ActivityIndicator,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 
 export const Home = ({ navigation }) => {
@@ -29,26 +29,35 @@ export const Home = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={require("../../assets/produtos/fundo.jpg")} 
+      source={require("../../assets/produtos/fundo.jpg")}
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
     >
       <View style={styles.container}>
         <Image
-          style={{ width: 280, height: 200, resizeMode: "contain" }}
+          style={{
+            width: 290,
+            height: 120,
+            resizeMode: "contain",
+            backgroundColor: "#ffffffdb",
+            borderRadius: 8,
+         
+            
+          }}
           source={require("../../assets/login/Logo-Cod-Farma.png")}
         />
+
         <View style={styles.entradas}>
           <TouchableOpacity
             style={styles.botao1}
             onPress={() => handleNavigation("Produtos")}
           >
-            <Text style={styles.texto} >Ir para produtos</Text>
+            <Text style={styles.texto}>Ir para produtos</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.botao2}
             onPress={() => handleNavigation("Integrantes")}
           >
-            <Text style={styles.texto} >Ir para integrantes</Text>
+            <Text style={styles.texto}>Ir para integrantes</Text>
           </TouchableOpacity>
         </View>
 
@@ -62,38 +71,40 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: " center"
+   
+   
   },
 
   entradas: {
+   
     flex: 0.5,
     width: "100%",
     alignItems: "center",
-    justifyContent: "center",
-    
+    justifyContent:"flex-end",
   },
   saida: {
     flex: 0.3,
     width: "100%",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent:"flex-end",
   },
-  
-
 
   botao1: {
     padding: 10,
-    backgroundColor: "#55b3d1" ,
+    backgroundColor: "#55b3d1",
     alignItems: "center",
     borderRadius: 8,
     width: "85%",
-    marginVertical: 10,
+    marginVertical: 8,
+   
     shadowColor: "#000",
     shadowRadius: 3,
     shadowOpacity: 0.3,
     shadowOffset: { width: -2, height: 4 },
+    justifyContent:"flex-end",
+   
   },
-
 
   botao2: {
     padding: 10,
@@ -106,16 +117,12 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     shadowOpacity: 0.3,
     shadowOffset: { width: -2, height: 4 },
+    justifyContent:"flex-end",
   },
-
 
   texto: {
-
-fontSize: 20,
-color: 'white',
-
+    fontSize: 20,
+    color: "white",
+  
   },
-
-
 });
-
