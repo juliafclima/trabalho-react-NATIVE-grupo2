@@ -43,12 +43,12 @@ export const Produtos = ({ navigation }) => {
 
           <View style={estilos.card} key={item.id}>
 
-            {/* <Image source={item.imagem} style={estilos.imagem} /> */}
-            <Image
+            <Image source={item.imagem} style={estilos.imagem} />
+            {/* <Image
               source={{ uri: item.imagem }}
               style={estilos.imagem}
-              onError={() => console.log('Erro ao carregar a imagem')}
-            />
+              onError={() => console.log('Erro ao carregar a imagem')} 
+            />*/}
             <Text style={estilos.titulo}>{item.nome}</Text>
             <Text style={estilos.preco}>R$ {item.preco}</Text>
 

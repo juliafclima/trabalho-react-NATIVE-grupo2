@@ -7,14 +7,14 @@ export const CadastrarProdutos = ({ navigation }) => {
   const [preco, setPreco] = useState('');
   const [descricao, setDescricao] = useState('');
   const [detalhes, setDetalhes] = useState('');
-  const [imagemUrl, setImagemUrl] = useState('');
+  const [imagem, setImagem] = useState('');
 
   const handleCadastro = (callback) => {
     console.log('Nome:', nome);
     console.log('Preço:', preco);
     console.log('Descrição:', descricao);
     console.log('Detalhes:', detalhes);
-    console.log('Imagem URL:', imagemUrl);
+    console.log('Imagem :', imagem);
 
     if (typeof callback === 'function') {
       callback({
@@ -22,7 +22,7 @@ export const CadastrarProdutos = ({ navigation }) => {
         preco,
         descricao,
         detalhes,
-        imagemUrl,
+        imagem,
       });
     }
   };
@@ -73,11 +73,11 @@ export const CadastrarProdutos = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="URL da Imagem"
-        value={imagemUrl}
-        onChangeText={(text) => setImagemUrl(text)}
+        value={imagem}
+        onChangeText={(text) => setImagem(text)}
       />
-      {imagemUrl ? (
-        <Image source={{ uri: imagemUrl }} style={styles.image} />
+      {imagem ? (
+        <Image source={{ uri: imagem }} style={styles.image} />
       ) : null}
       <TouchableOpacity
         activeOpacity={0.8}

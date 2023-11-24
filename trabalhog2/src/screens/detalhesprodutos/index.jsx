@@ -26,7 +26,7 @@ export const DetalhesProdutos = ({ route }) => {
       .delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
       .then(() => {
         setProdutos(produtos.filter((produto) => produto.id !== id));
-        navigation.navigate('Produtos'); // Voltar para a tela de produtos após a exclusão
+        navigation.navigate('Produtos'); 
       })
       .catch((error) => {
         console.error('Erro ao excluir produto: ', error);
@@ -38,7 +38,7 @@ export const DetalhesProdutos = ({ route }) => {
       <Card style={cardStyle}>
         <View style={styles.card}>
           <View style={styles.subCard}>
-            <Card.Cover style={styles.foto} source={item.foto} />
+            <Card.Cover style={styles.foto} source={item.imagem} />
             <Text style={styles.title}>{item.nome}</Text>
             <Text style={styles.preco}>R$ {item.preco}</Text>
             <Text style={styles.subtitle}>{item.descricao}</Text>
