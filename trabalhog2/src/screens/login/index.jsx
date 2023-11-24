@@ -16,12 +16,13 @@ const SplashScreen = () => {
       <Animatable.Image 
         animation="bounceIn"
         duration="3000"
-        style={{marginBottom:340,width: 280, height: 200, resizeMode: 'contain' }}
+        style={{marginBottom:340, width: 280, height: 200, resizeMode: 'contain' }}
         source={require("../../assets/login/Logo-Cod-Farma.png")}
       />
     </View>
   );
 };
+
 
 export const Login = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +40,7 @@ export const Login = () => {
   const [senha, setSenha] = useState('');
 
 
-  /* useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -49,7 +50,7 @@ export const Login = () => {
 
   if (isLoading) {
     return <SplashScreen />;
-  } */
+  }
 
   return (
     <KeyboardAvoidingView style={styles.background}>
