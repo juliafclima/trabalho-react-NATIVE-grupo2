@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import axios from 'axios';
 
 export const CadastrarProdutos = ({ navigation }) => {
@@ -40,39 +40,41 @@ export const CadastrarProdutos = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <View style={styles.subContainer}>
+   
       <TextInput
         style={styles.input}
-        placeholder="Nome do Produto"
+        placeholder="Nome do Produto:"
         value={nome}
         onChangeText={(text) => setNome(text)}
       />
       <TextInput
         style={styles.input}
-        placeholder="Preço"
+        placeholder="Preço:"
         keyboardType="numeric"
         value={preco}
         onChangeText={(text) => setPreco(text)}
       />
       <TextInput
-        style={styles.input}
-        placeholder="Descrição"
+        style={styles.input1}
+        placeholder="Descrição:"
         multiline
-        numberOfLines={10}
+       
         value={descricao}
         onChangeText={(text) => setDescricao(text)}
       />
       <TextInput
-        style={styles.input}
-        placeholder="Detalhes"
+        style={styles.input1}
+        placeholder="Detalhes:"
         multiline
-        numberOfLines={10}
+        
         value={detalhes}
         onChangeText={(text) => setDetalhes(text)}
       />
       <TextInput
         style={styles.input}
-        placeholder="URL da Imagem"
+        placeholder="URL da Imagem:"
         value={imagem}
         onChangeText={(text) => setImagem(text)}
       />
@@ -87,23 +89,74 @@ export const CadastrarProdutos = ({ navigation }) => {
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
     </View>
+   
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+ 
+
   container: {
-    flex: 1,
+  
     padding: 16,
-    backgroundColor: '#009bbf',
+    backgroundColor: "#55b2d138",
   },
+  subContainer: {
+    flex: 1,
+    width:"100%",
+    height: "100%",
+    padding: 16,
+    borderRadius: 8,
+    justifyContent: "flex-end",
+    backgroundColor: "#55b2d19d",
+    shadowColor: "#000",
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 },
+  },
+
+
+
+
+
+
+
+ 
+
   input: {
-    height: 40,
-    borderColor: '#fff',
+    borderColor: "gray",
     borderWidth: 1,
     marginBottom: 12,
-    paddingLeft: 8,
-    backgroundColor: '#fff',
+    padding: 8,
+    backgroundColor: "#fff",
+    color: "gray",
+    borderRadius: 8,
+    minHeight: 23,
+    
+
   },
+
+
+  input1: {
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 12,
+    padding: 8,
+    backgroundColor: "#fff",
+    color: "gray",
+    borderRadius: 8,
+    minHeight: 65,
+   
+
+  },
+
+
+
+
+
+
+
   image: {
     width: 200,
     height: 200,
@@ -112,6 +165,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#f17064',
     padding: 10,
+    marginTop: 20,
     borderRadius: 5,
     alignItems: 'center',
   },
@@ -119,6 +173,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 16,
+   
+
   },
 });
 

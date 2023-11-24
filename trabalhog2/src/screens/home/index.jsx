@@ -40,6 +40,8 @@ export const Home = ({ navigation }) => {
             resizeMode: "contain",
             backgroundColor: "#ffffffdb",
             borderRadius: 8,
+            paddingStart: 30,
+            paddingEnd: 30,
          
             
           }}

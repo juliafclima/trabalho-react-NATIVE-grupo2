@@ -57,7 +57,7 @@ export const Integrantes = () => {
 <Text style={styles.nomeMembro}>{membro.nome}</Text>
 <Text style={styles.descricaoMembro}>{membro.descricao}</Text>
 <TouchableOpacity onPress={() => handleLinkedInPress(membro.linkedin)}>
-  <Text style={styles.linkedin} >LINKEDIN</Text>
+  <Text style={styles.linkedin} >GitHub</Text>
 </TouchableOpacity>
 </View>
 

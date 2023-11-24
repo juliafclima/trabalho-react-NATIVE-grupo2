@@ -70,27 +70,27 @@ export const UpdateProdutos = ({ route, navigation }) => {
       <View style={styles.subContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Nome do Produto"
+          placeholder="Nome do Produto:"
           value={produto.nome}
           onChangeText={(text) => setProduto({ ...produto, nome: text })}
         />
         <TextInput
           style={styles.input}
-          placeholder="Preço"
+          placeholder="Preço:"
           keyboardType="numeric"
           value={produto.preco}
           onChangeText={(text) => setProduto({ ...produto, preco: text })}
         />
         <TextInput
           style={styles.input1}
-          placeholder="Descrição"
+          placeholder="Descrição:"
           multiline
           value={produto.descricao}
           onChangeText={(text) => setProduto({ ...produto, descricao: text })}
         />
         <TextInput
           style={styles.input1}
-          placeholder="Detalhes"
+          placeholder="Detalhes:"
           multiline
           value={produto.detalhes}
           onChangeText={(text) => setProduto({ ...produto, detalhes: text })}
@@ -98,7 +98,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
 
         <TextInput
           style={styles.input}
-          placeholder="URL da Imagem"
+          placeholder="URL da Imagem:"
           value={produto.imagem}
           onChangeText={(text) => setProduto({ ...produto, imagem: text })}
         />
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 8,
     backgroundColor: "#fff",
-    color: "black",
+    color: "gray",
     borderRadius: 8,
     minHeight: 23,
 
@@ -156,17 +156,17 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 8,
     backgroundColor: "#fff",
-    color: "black",
+    color: "gray",
     borderRadius: 8,
-    minHeight: 65,
+    minHeight: 100,
 
   },
 
 
 
   image: {
-    width: 130,
-    height: 130,
+    width:40,
+    height: 40,
     justifyContent: "center",
     marginVertical: 10,
   },
