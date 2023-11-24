@@ -9,7 +9,7 @@ export default function App() {
   );
 }
 
-/* TAG: 4.29.1 */
+/* TAG: 4.31.0 */
 
 // Pressione Ctrl + Shift + P para abrir a paleta de comandos.
 // Digite 'Git: Push Tags' e pressione Enter.

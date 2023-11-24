@@ -1,12 +1,31 @@
-import React, { useContext, useState } from 'react';
+
+import React, { useContext, useState, useEffect } from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import * as Animatable from 'react-native-animatable';
 // Importei o ActivityIndicator e o Snackbar do react-native-paper
 import { ActivityIndicator, Snackbar } from 'react-native-paper';
 import { AuthContext } from '../../context/AuthProvider';
 
+
+const SplashScreen = () => {
+  return (
+    <View style={styles.container22}>
+      <Animatable.Image 
+        animation="bounceIn"
+        duration="3000"
+        style={{marginBottom:340,width: 280, height: 200, resizeMode: 'contain' }}
+        source={require("../../assets/login/Logo-Cod-Farma.png")}
+      />
+    </View>
+  );
+};
+
 export const Login = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   // Adicionei um novo estado para controlar quando o indicador de atividade deve ser exibido
   const [loading, setLoading] = useState(false);
   // Adicionei estados para controlar a visibilidade e a mensagem do Snackbar
@@ -19,6 +38,18 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+
+  /* useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <SplashScreen />;
+  } */
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -124,5 +155,11 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#fff',
     fontSize: 20
-  }
+  },
+  container22: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
 });

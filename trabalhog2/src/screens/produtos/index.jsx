@@ -73,17 +73,24 @@ const estilos = StyleSheet.create({
     justifyContent: 'space-around',
   },
   card: {
+
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 10,
+    paddingTop:20,
     margin: 10,
     width: '95%',
     height: 420,
     alignItems: 'center',
+    shadowColor: "#000",
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 },
+   
   },
   imagem: {
     width: '95%',
-    height: 300,
+    height: 290,
     resizeMode: 'cover',
     borderRadius: 5,
   },
@@ -126,10 +133,15 @@ const estilos = StyleSheet.create({
   botaoCadastrar: {
     backgroundColor: '#ffb25f',
     borderRadius: 5,
-    marginTop: 10,
+    marginBottom:8,
+    marginTop: 8,
     paddingVertical: 5,
     paddingHorizontal: 10,
     opacity: 0.9,
     alignSelf: 'flex-start',
+    shadowColor: "#000",
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 },
   },
 });

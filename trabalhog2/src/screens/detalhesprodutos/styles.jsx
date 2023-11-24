@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "bold",
-    marginTop: 5,
+    marginTop: 10,
     textAlign: "center",
   },
 
@@ -52,6 +52,8 @@ export const styles = StyleSheet.create({
     borderEndEndRadius: 5,
     borderEndStartRadius: 5,
   },
+
+  
   botao: {
     backgroundColor: "#55b3d1",
     borderRadius: 5,
@@ -65,13 +67,35 @@ export const styles = StyleSheet.create({
     shadowRadius: 3,
     shadowOpacity: 0.3,
     shadowOffset: { width: -2, height: 4 },
+
+
+
+
   },
+
+  botao2: {
+    backgroundColor: "red",
+    borderRadius: 5,
+    marginTop: 15,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    opacity: 0.9,
+    marginRight: 5,
+    marginBottom: 15,
+    shadowColor: "#000",
+    shadowRadius: 3,
+    shadowOpacity: 0.3,
+    shadowOffset: { width: -2, height: 4 },
+
+  },
+
+
   preco: {
     fontSize: 14,
     fontWeight: "bold",
     marginTop: 5,
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 8,
   },
 
   botaoTexto: {
@@ -83,6 +107,5 @@ export const styles = StyleSheet.create({
   foto: {
     resizeMode: "cover",
     borderRadius: 5,
-    borderRadius: 8,
   },
 });
