@@ -38,7 +38,7 @@ const AuthNavigator = () => {
     setTimeout(() => {
       // Define o usuário como um objeto fictício
       setUser({ name: "ola", email: "ola@gmail.com" });
-    }, 9000);
+    }, 1000);
   }, []);
 
   // Renderiza o TabLogin se o usuário for nulo, ou o Tab se o usuário for definido

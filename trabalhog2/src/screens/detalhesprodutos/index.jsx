@@ -53,7 +53,7 @@ export const DetalhesProdutos = ({ route }) => {
                 style={styles.botao}
               >
               
-                <FontAwesome name="edit" size={29} color="black" />
+                <FontAwesome name="edit" size={29} color="white" />
                   
               </TouchableOpacity>
 
@@ -64,7 +64,7 @@ export const DetalhesProdutos = ({ route }) => {
                 onPress={() => deleteProduto(item.id)}
               >
                
-                <Ionicons name="md-trash-bin" size={24} color="black" />
+                <Ionicons name="md-trash-bin" size={24} color="white" />
                
                   
               </TouchableOpacity>
