@@ -12,14 +12,6 @@ const { Navigator, Screen } = createNativeStackNavigator();
 export const Stack = () => {
   return (
     <Navigator>
-      {/* <Screen
-        name='Login'
-        component={Login}
-        options={{ headerShown: false }} />
-      <Screen
-        name='Cadastro'
-        component={Cadastro}
-        options={{ headerShown: false }} /> */}
       <Screen
         name='Home'
         component={Home}

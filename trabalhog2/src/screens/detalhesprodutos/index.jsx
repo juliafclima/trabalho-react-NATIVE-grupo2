@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, View, Text, Alert } from "react-native";
+import { TouchableOpacity, View, Text, Alert, ScrollView } from "react-native";
 import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
@@ -88,7 +88,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
     <Card style={cardStyle}>
       <View style={styles.card}>
         <View style={styles.subCard}>
@@ -118,7 +118,7 @@ const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
         </View>
         </View>
     </Card>
-    </View>
+    </ScrollView>
   );
 };
 
