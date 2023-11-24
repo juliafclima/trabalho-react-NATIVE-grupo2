@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -2, height: 4 },
   },
 
-  
+
   botao2: {
     padding: 10,
     backgroundColor: "#f17064",
@@ -118,3 +118,4 @@ color: 'white',
 
 
 });
+
