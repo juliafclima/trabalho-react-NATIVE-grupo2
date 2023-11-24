@@ -4,7 +4,7 @@ export default function App() {
   return <Rotas />;
 }
 
-/* TAG: 4.27. */
+/* TAG: 4.27.1 */
 
 // Pressione Ctrl + Shift + P para abrir a paleta de comandos.
 // Digite 'Git: Push Tags' e pressione Enter.
