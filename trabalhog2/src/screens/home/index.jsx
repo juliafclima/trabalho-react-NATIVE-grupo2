@@ -1,21 +1,21 @@
-import React, { useState } from 'react'; //gerencia o estado de carregamento
+import React, { useState } from 'react'; 
 import { View, Text, StyleSheet, TouchableOpacity, Image, Alert, ActivityIndicator } from 'react-native';
 
 export const Home = ({ navigation }) => {
-  const [loading, setLoading] = useState(false); // Aqui que vê o estado de carregamento
+  const [loading, setLoading] = useState(false); 
 
   const handleNavigation = (screen) => {
     if (!screen) {
-      Alert.alert('Erro! Navegação inválida!'); // Alerta se a navegação for inválida
+      Alert.alert('Erro! Navegação inválida!'); 
       return;
     }
 
-    setLoading(true); // Inicia o carregamento
+    setLoading(true); 
 
-    // Simulando um atraso na navegação ... achei muito maneiro :)
+   
     setTimeout(() => {
-      setLoading(false); // Termina o carregamento
-      navigation.navigate(screen); // Navega para a tela desejada
+      setLoading(false); 
+      navigation.navigate(screen); 
     }, 850);
   };
 
@@ -34,13 +34,7 @@ export const Home = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      {/* <View style={styles.saida}>
-        <TouchableOpacity style={[styles.botao, { backgroundColor: '#f17064', width: '45%' }]} onPress={() => handleNavigation("Login")}>
-          <Text style={{ color: '#fff' }}>
-            Sair
-          </Text>
-        </TouchableOpacity>
-      </View> */}
+      
       {loading && <ActivityIndicator size="large" color="#55b3d1" />}
     </View>
   );
@@ -77,3 +71,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -2, height: 4 }
   },
 });
+
+
+
+
+

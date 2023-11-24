@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     backgroundColor: '#ffb25f',
     color: 'white',
+    borderRadius: 8,
   },
   image: {
     width: 200,

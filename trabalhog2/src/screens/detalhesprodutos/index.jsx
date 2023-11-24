@@ -4,6 +4,8 @@ import { Card } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { styles } from "./styles";
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const getCardColor = (index) => {
   const colors = ["white", "white", "white"];
@@ -50,15 +52,21 @@ export const DetalhesProdutos = ({ route }) => {
                 activeOpacity={0.8}
                 style={styles.botao}
               >
-                <Text style={styles.botaoTexto}>✏️</Text>
+              
+                <FontAwesome name="edit" size={29} color="black" />
+                  
               </TouchableOpacity>
+
 
               <TouchableOpacity
                 activeOpacity={0.8}
-                style={styles.botao}
+                style={styles.botao2}
                 onPress={() => deleteProduto(item.id)}
               >
-                <Text style={styles.botaoTexto}>🗑️</Text>
+               
+                <Ionicons name="md-trash-bin" size={24} color="black" />
+               
+                  
               </TouchableOpacity>
             </View>
           </View>

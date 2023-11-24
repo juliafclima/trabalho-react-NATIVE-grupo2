@@ -76,6 +76,7 @@ const estilos = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 10,
+    paddingTop:20,
     margin: 10,
     width: '95%',
     height: 420,
@@ -83,7 +84,7 @@ const estilos = StyleSheet.create({
   },
   imagem: {
     width: '95%',
-    height: 300,
+    height: 270,
     resizeMode: 'cover',
     borderRadius: 5,
   },
