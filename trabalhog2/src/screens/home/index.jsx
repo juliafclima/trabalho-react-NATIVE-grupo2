@@ -41,7 +41,7 @@ export const Home = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      {loading && <ActivityIndicator size="large" color="#55b3d1" />} {/* Adicionado ActivityIndicator para indicar o carregamento */}
+      {loading && <ActivityIndicator size="large" color="#55b3d1" />}
     </View>
   );
 };
