@@ -1,7 +1,12 @@
+import { AuthProvider } from "./src/context/AuthProvider";
 import { Rotas } from "./src/routes";
 
 export default function App() {
-  return <Rotas />;
+  return (
+    <AuthProvider>
+      <Rotas />
+    </AuthProvider>
+  );
 }
 
 /* TAG: 4.29.1 */
