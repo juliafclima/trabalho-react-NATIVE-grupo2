@@ -87,8 +87,6 @@ export const UpdateProdutos = ({ route, navigation }) => {
           multiline
           value={produto.descricao}
           onChangeText={(text) => setProduto({ ...produto, descricao: text })}
-         
-    
         />
         <TextInput
           style={styles.input}
@@ -96,9 +94,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
           multiline
           value={produto.detalhes}
           onChangeText={(text) => setProduto({ ...produto, detalhes: text })}
-         
         />
-
 
         <TextInput
           style={styles.input}
@@ -128,20 +124,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#55b2d158',
+    backgroundColor: "#55b2d138",
   },
   subContainer: {
     flex: 1,
     padding: 16,
     borderRadius: 8,
-    backgroundColor: '#55b2d1ce',
+    backgroundColor: "#55b2d19d",
     shadowColor: "#000",
     shadowRadius: 3,
     shadowOpacity: 0.3,
     shadowOffset: { width: -2, height: 4 },
   },
+
   input: {
-    
     borderColor: "gray",
     borderWidth: 1,
     marginBottom: 12,
@@ -149,11 +145,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     color: "black",
     borderRadius: 8,
-    height: 70
-
-
+    height: 70,
   },
-  
+
   image: {
     width: 200,
     height: 200,
