@@ -23,7 +23,7 @@ export const Stack = () => {
       <Screen
         name='DetalhesProdutos'
         component={DetalhesProdutos}
-        options={{ title: 'Detalhes dos produtos' }} />
+        options={{ title: 'Detalhes do produto' }} />
       <Screen
         name='CadastrarProdutos'
         component={CadastrarProdutos}
