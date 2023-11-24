@@ -66,7 +66,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.subContainer}>
         <TextInput
           style={styles.input}
@@ -82,14 +82,14 @@ export const UpdateProdutos = ({ route, navigation }) => {
           onChangeText={(text) => setProduto({ ...produto, preco: text })}
         />
         <TextInput
-          style={styles.input}
+          style={styles.input1}
           placeholder="Descrição"
           multiline
           value={produto.descricao}
           onChangeText={(text) => setProduto({ ...produto, descricao: text })}
         />
         <TextInput
-          style={styles.input}
+          style={styles.input1}
           placeholder="Detalhes"
           multiline
           value={produto.detalhes}
@@ -116,7 +116,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
           <Text style={styles.buttonText}>ATUALIZAR</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -145,12 +145,28 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     color: "black",
     borderRadius: 8,
-    height: 70,
+    minHeight: 23,
+
   },
 
+
+  input1: {
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 12,
+    padding: 8,
+    backgroundColor: "#fff",
+    color: "black",
+    borderRadius: 8,
+    minHeight: 65,
+
+  },
+
+
+
   image: {
-    width: 200,
-    height: 200,
+    width: 130,
+    height: 130,
     justifyContent: "center",
     marginVertical: 10,
   },

@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
         setUser({ user: pessoaEncontrada.nome });
       } else {
       console.log('Usuário não encontrado');
-      alert("Ja tentou por paulo1?");
+      alert("Senha inválida!");
     }
   };
 
