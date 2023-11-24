@@ -10,9 +10,7 @@ const getCardColor = (index) => {
   return colors[index % colors.length];
 };
 
-export const DetalhesProdutos = ({ route }) => {
-  const { item } = route.params;
-  const [produtos, setProdutos] = useState([]); // Estado para armazenar os produtos
+const DetalheProduto = ({ nome, descricao, detalhes, preco, foto, index}) => {
 
   const cardStyle = {
     ...styles.card,
@@ -21,37 +19,36 @@ export const DetalhesProdutos = ({ route }) => {
 
   const navigation = useNavigation();
 
-  const deleteProduto = (id) => {
-    axios
-      .delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
-      .then(() => {
-        setProdutos(produtos.filter((produto) => produto.id !== id));
-        navigation.navigate('Produtos'); 
+  function deleteProduto(id) {
+    axios.delete(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${id}`)
+      
+      .then(response => {
+        produtos(produtos.filter(produto => produto.id !== id));
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Erro ao excluir produto: ', error);
       });
-  };
+  }
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Card style={cardStyle}>
-        <View style={styles.card}>
-          <View style={styles.subCard}>
-            <Card.Cover style={styles.foto} source={item.imagem} />
-            <Text style={styles.title}>{item.nome}</Text>
-            <Text style={styles.preco}>R$ {item.preco}</Text>
-            <Text style={styles.subtitle}>{item.descricao}</Text>
-            <Text style={styles.subtitle2}>{item.detalhes}</Text>
+    <View style={styles.container}>
+    <Card style={cardStyle}>
+      <View style={styles.card}>
+        <View style={styles.subCard}>
+        <Card.Cover style={styles.foto} source={foto} />
+        <Text style={styles.title}>{nome}</Text>
+        <Text style={styles.preco}>R$ {preco}</Text>
+        <Text style={styles.subtitle}>{descricao}</Text>
+        <Text style={styles.subtitle2}>{detalhes}</Text>
 
-            <View style={{ flexDirection: "row", justifyContent: "center" }}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('UpdateProdutos', item.id)}
-                activeOpacity={0.8}
-                style={styles.botao}
-              >
-                <Text style={styles.botaoTexto}>✏️</Text>
-              </TouchableOpacity>
+        <View style={{ flexDirection: "row", justifyContent: "center" }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('UpdateProdutos')}
+            activeOpacity={0.8}
+            style={styles.botao}
+          >
+            <Text style={styles.botaoTexto}>✏️</Text>
+          </TouchableOpacity>
 
               <TouchableOpacity
                 activeOpacity={0.8}
@@ -63,7 +60,14 @@ export const DetalhesProdutos = ({ route }) => {
             </View>
           </View>
         </View>
-      </Card>
-    </ScrollView>
+    </Card>
+    </View>
   );
+};
+
+export const DetalhesProdutos = ({ route }) => {
+  const { item } = route.params;
+  console.log(item);
+
+  return <DetalheProduto {...item} />;
 };
