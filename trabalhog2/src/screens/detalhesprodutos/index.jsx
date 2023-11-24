@@ -46,7 +46,7 @@ export const DetalhesProdutos = ({ route }) => {
 
             <View style={{ flexDirection: "row", justifyContent: "center" }}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('UpdateProdutos')}
+                onPress={() => navigation.navigate('UpdateProdutos', item.id)}
                 activeOpacity={0.8}
                 style={styles.botao}
               >
