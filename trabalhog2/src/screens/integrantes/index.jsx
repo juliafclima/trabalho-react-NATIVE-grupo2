@@ -21,13 +21,13 @@ export const Integrantes = () => {
             nome: 'LUCAS DE MELLO SELJAN',
             foto: require('../../assets/integrantes/lucasseljan.jpg'),
             linkedin: 'https://github.com/Lucas-Seljan',
-            descricao: "Um projeto a programador amistoso, sofrido e genial",
+            descricao: "Um projeto a programador amistoso, sofrido e genial.",
           },
           {
             nome: 'LUCAS JOSÉ GONÇALVES',
             foto: require('../../assets/integrantes/lucasjose.jpg'),
             linkedin: 'https://github.com/Lucas-Jose-Goncalves',
-            descricao: "Sou apenas um console querendo fugir dos erros da vida",
+            descricao: "Sou apenas um console querendo fugir dos erros da vida.",
           },
           {
             nome: 'PEDRO HORÁCIO SAURINO FILHO',
@@ -57,7 +57,7 @@ export const Integrantes = () => {
 <Text style={styles.nomeMembro}>{membro.nome}</Text>
 <Text style={styles.descricaoMembro}>{membro.descricao}</Text>
 <TouchableOpacity onPress={() => handleLinkedInPress(membro.linkedin)}>
-  <Text style={styles.linkedin}>LINKEDIN</Text>
+  <Text style={styles.linkedin} >LINKEDIN</Text>
 </TouchableOpacity>
 </View>
 
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
 
 
   backgroundColor:'#55b3d1' ,
+  fontWeight: 'bold',
   padding:6,
   borderRadius: 4,
   marginTop: 13,
