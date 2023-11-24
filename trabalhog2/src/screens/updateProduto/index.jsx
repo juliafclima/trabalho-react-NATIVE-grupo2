@@ -4,11 +4,6 @@ import axios from 'axios';
 
 export const UpdateProdutos = ({ route, navigation }) => {
   const productId = route?.params;
-  const [nome, setNome] = useState('');
-  const [preco, setPreco] = useState('');
-  const [imagem, setImagem] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [detalhes, setDetalhes] = useState('');
   const [updated, setUpdated] = useState(false);
   const [produto, setProduto] = useState('');
 
@@ -16,13 +11,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
     axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${productId}`)
       .then(response => {
         const produto = response.data;
-       // console.log( "mensagem no console", produto);
         if (produto && produto.nome && produto.preco && produto.imagem && produto.descricao && produto.detalhes) {
-          // setNome(produto.nome);
-          // setPreco(produto.preco);
-          // setImagem(produto.imagem);
-          // setDescricao(produto.descricao);
-          // setDetalhes(produto.detalhes);
           setProduto(produto);
           setUpdated(true);
         }
@@ -40,13 +29,6 @@ export const UpdateProdutos = ({ route, navigation }) => {
     }
     console.log('Por favor, preencha todos os campos corretamente.');
 
-    // const data = {
-    //   nome,
-    //   preco,
-    //   descricao,
-    //   detalhes,
-    //   imagem,
-    // };
 
     axios.put(`https://6542dfe001b5e279de1fabce.mockapi.io/produto/${productId}`, produto)
       .then(() => {
@@ -98,7 +80,8 @@ export const UpdateProdutos = ({ route, navigation }) => {
         onChangeText={(text) => setProduto({...produto, imagem: text})}  
       />
 
-      <Image source={{ uri: `../../assets/produtos/${imagem}` }} style={styles.image} />
+      <Image source={{ uri: `../../assets/produtos/${produto.imagem}` }} style={styles.image} />
+
 
       <TouchableOpacity
         activeOpacity={0.8}
