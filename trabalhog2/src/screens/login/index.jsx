@@ -12,8 +12,8 @@ const SplashScreen = () => {
     <View style={styles.container22}>
       <Animatable.Image 
         animation="bounceIn"
-        duraton="1500"
-        style={{ width: 280, height: 200, resizeMode: 'contain' }}
+        duration="3000"
+        style={{marginBottom:340,width: 280, height: 200, resizeMode: 'contain' }}
         source={require("../../assets/login/Logo-Cod-Farma.png")}
       />
     </View>
