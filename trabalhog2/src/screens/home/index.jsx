@@ -34,13 +34,13 @@ export const Home = ({ navigation }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.saida}>
+      {/* <View style={styles.saida}>
         <TouchableOpacity style={[styles.botao, { backgroundColor: '#f17064', width: '45%' }]} onPress={() => handleNavigation("Login")}>
           <Text style={{ color: '#fff' }}>
             Sair
           </Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
       {loading && <ActivityIndicator size="large" color="#55b3d1" />}
     </View>
   );

@@ -3,39 +3,6 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, FlatList }
 import axios from 'axios';
 import { useFocusEffect } from "@react-navigation/core";
 
-/* const produtos = [
-  {
-    id: 1,
-    nome: 'COMPRIMIDOS FOCU',
-    preco: 15.99,
-    imagem: require('../../assets/produtos/focu.jpg'),
-  },
-  {
-    id: 2,
-    nome: 'PÍLULAS ZOOM',
-    preco: 20.99,
-    imagem: require('../../assets/produtos/zoom.jpg'),
-  },
-  {
-    id: 5,
-    nome: 'SACHÊ DO SONO',
-    preco: 20.99,
-    imagem: require('../../assets/produtos/sono.jpg'),
-  },
-  {
-    id: 3,
-    nome: 'TABLETES XÔ ANSIEDADE',
-    preco: 15.99,
-    imagem: require('../../assets/produtos/xoAnsiedade.jpg'),
-  },
-  {
-    id: 4,
-    nome: 'COMPRIMIDOS TRAVA-LÍNGUA',
-    preco: 20.99,
-    imagem: require('../../assets/produtos/travaLingua.jpg'),
-  },
-]; */
-
 export const Produtos = ({ navigation }) => {
 
   const [produtos, setProdutos] = useState([]);
@@ -77,6 +44,11 @@ export const Produtos = ({ navigation }) => {
           <View style={estilos.card} key={item.id}>
 
             <Image source={item.imagem} style={estilos.imagem} />
+            {/* <Image
+              source={{ uri: item.imagem }}
+              style={estilos.imagem}
+              onError={() => console.log('Erro ao carregar a imagem')} 
+            />*/}
             <Text style={estilos.titulo}>{item.nome}</Text>
             <Text style={estilos.preco}>R$ {item.preco}</Text>
 
