@@ -35,8 +35,10 @@ export const UpdateProdutos = ({ route, navigation }) => {
   const handleAtualizacao = () => {
     if (!produto.nome.trim() || !produto.descricao.trim() || isNaN(produto.preco)) {
       alert('Por favor, preencha todos os campos corretamente.');
+      
       return;
     }
+    console.log('Por favor, preencha todos os campos corretamente.');
 
     // const data = {
     //   nome,
@@ -64,14 +66,14 @@ export const UpdateProdutos = ({ route, navigation }) => {
         style={styles.input}
         placeholder="Nome do Produto"
         value={produto.nome}
-        onChangeText={(text) => produto.nome=text} 
+        onChangeText={(text) => setProduto({...produto, nome: text})} 
       />
       <TextInput
         style={styles.input}
         placeholder="Preço"
         keyboardType="numeric"
         value={produto.preco}
-        onChangeText={(text) => produto.preco=text} 
+        onChangeText={(text) => setProduto({...produto, preco: text})}  
       />
       <TextInput
         style={styles.input}
@@ -79,7 +81,7 @@ export const UpdateProdutos = ({ route, navigation }) => {
         multiline
         numberOfLines={10}
         value={produto.descricao}
-        onChangeText={(text) => produto.descricao=text}
+        onChangeText={(text) => setProduto({...produto, descricao: text})}  
       />
       <TextInput
         style={styles.input}
@@ -87,13 +89,13 @@ export const UpdateProdutos = ({ route, navigation }) => {
         multiline
         numberOfLines={10}
         value={produto.detalhes}
-        onChangeText={(text) => produto.detalhes=text}
+        onChangeText={(text) => setProduto({...produto, detalhes: text})}  
       />
       <TextInput
         style={styles.input}
         placeholder="URL da Imagem"
         value={produto.imagem}
-        onChangeText={(text) => produto.imagem=text}
+        onChangeText={(text) => setProduto({...produto, imagem: text})}  
       />
 
       <Image source={{ uri: `../../assets/produtos/${imagem}` }} style={styles.image} />
