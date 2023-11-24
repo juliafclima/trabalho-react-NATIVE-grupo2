@@ -1,10 +1,13 @@
-import React, { useState,useEffect } from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet,Alert } from 'react-native';
+
+import React, { useContext, useState, useEffect } from 'react';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native';
+
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import * as Animatable from 'react-native-animatable';
 // Importei o ActivityIndicator e o Snackbar do react-native-paper
 import { ActivityIndicator, Snackbar } from 'react-native-paper';
+import { AuthContext } from '../../context/AuthProvider';
 
 
 const SplashScreen = () => {
@@ -21,12 +24,7 @@ const SplashScreen = () => {
 };
 
 export const Login = () => {
-
   const [isLoading, setIsLoading] = useState(true);
-  const [formData, setFormData] = useState({
-    email: '',
-    senha: '',
-  });
 
   // Adicionei um novo estado para controlar quando o indicador de atividade deve ser exibido
   const [loading, setLoading] = useState(false);
@@ -36,59 +34,12 @@ export const Login = () => {
 
   const navigation = useNavigation();
 
-  const authenticateUser = async (email, senha) => {
-    // Aqui está verificando se o email e a senha são válidos
-    try {
-      if (!email || !email.includes('@')) {
-        throw new Error('Por favor, insira um email válido!');
-      }
-      if (!senha || senha.length < 6) {
-        throw new Error('A senha deve ter pelo menos 6 caracteres!');
-      }
-    } catch (error) {
-      setErrorMessage(error.message);
-      setVisible(true);
-      return;
-    }
+  const { signin } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-    // Aqui está ativando o indicador de atividade antes de iniciar a chamada da API
-    setLoading(true);
 
-    try {
-      const response = await axios.get(`https://6542dfe001b5e279de1fabce.mockapi.io/login?email=${email}`);
-
-      if (response.status === 200) {
-        const userData = response.data;
-
-        if (userData.length > 0) {
-          const user = userData[0];
-          if (user.senha === senha) {
-            Alert.alert('Login bem-sucedido!');
-            navigation.navigate('Home');
-            setFormData({ email: '', senha: '' });
-          } else {
-            setErrorMessage('Senha incorreta. Tente novamente.');
-            setVisible(true);
-          }
-        } else {
-          setErrorMessage('Email não encontrado. Verifique as credenciais.');
-          setVisible(true);
-        }
-      } else {
-        setErrorMessage('Erro ao buscar usuário. Tente novamente mais tarde.');
-        setVisible(true);
-      }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro ao fazer login. Tente novamente mais tarde.');
-      setVisible(true);
-    } finally {
-      //Aqui está a desativação do indicador de atividade após a chamada da API ser concluída
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
+  /* useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3000);
@@ -98,7 +49,7 @@ export const Login = () => {
 
   if (isLoading) {
     return <SplashScreen />;
-  }
+  } */
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -109,21 +60,21 @@ export const Login = () => {
         <TextInput
           style={styles.input}
           placeholder="Email"
-          value={formData.email}
+          value={email}
           autoCorrect={false}
-          onChangeText={(text) => setFormData((prevData) => ({ ...prevData, email: text }))} />
+          onChangeText={setEmail} />
         <TextInput
           style={styles.input}
           placeholder="Senha"
-          value={formData.senha}
+          value={senha}
           autoCorrect={false}
-          onChangeText={(text) => setFormData((prevData) => ({ ...prevData, senha: text }))}
+          onChangeText={setSenha}
           secureTextEntry />
 
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.btnSubmit}
-          onPress={() => authenticateUser(formData.email, formData.senha)}
+          onPress={() => signin(email, senha)}
           disabled={loading}>
           <Text style={styles.btnText}>Entrar</Text>
         </TouchableOpacity>
@@ -146,7 +97,7 @@ export const Login = () => {
           {errorMessage}
         </Snackbar>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={() => navigation.navigate('Cadastro')}
           activeOpacity={0.7}
           style={styles.btnRegister}

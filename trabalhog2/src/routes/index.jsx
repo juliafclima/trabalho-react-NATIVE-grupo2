@@ -1,61 +1,89 @@
-// import { NavigationContainer } from '@react-navigation/native';
-// import { Tab } from './tab';
-// import { TabLogin } from './tabLogin';
-
-// export const Rotas = () => {
-//   return (
-//     <NavigationContainer>
-//       {/* <TabLogin /> */}
-//       <Tab />
-//     </NavigationContainer>
-//   );
-// };
-
-
-
-
-
-
-import React, { useState, useEffect, createContext, useContext } from "react";
+// Importe o hook useContext
+import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { Tab } from "./tab";
-import { TabLogin } from "./tabLogin";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-// Cria um contexto de autenticação que armazena o usuário logado e uma função para atualizar esse usuário
-const AuthContext = createContext({
-  user: null,
-  setUser: () => {},
-});
+import { Login } from "../screens/Login";
+import Cadastro from "../screens/cadastro";
+import { AuthContext } from "../context/AuthProvider";
+import { Produtos } from "../screens/produtos";
+import { Stack } from "./stack";
+import { Integrantes } from "../screens/integrantes";
+import { Feather, Entypo, Fontisto } from "@expo/vector-icons";
 
-// Cria um componente que usa o contexto de autenticação e renderiza o TabLogin ou o Tab de acordo com o estado do usuário
-const AuthNavigator = () => {
-  // Obtém o usuário e a função do contexto de autenticação
-  const { user, setUser } = useContext(AuthContext);
+const { Navigator, Screen } = createBottomTabNavigator();
 
-  // Verifica se o usuário está logado ou não usando o hook useEffect
-  useEffect(() => {
-    // Simula uma chamada assíncrona para verificar o usuário
-    setTimeout(() => {
-      // Define o usuário como um objeto fictício
-      setUser({ name: "ola", email: "ola@gmail.com" });
-    }, 1000);
-  }, []);
-
-  // Renderiza o TabLogin se o usuário for nulo, ou o Tab se o usuário for definido
-  return user ? <Tab /> : <TabLogin />;
-};
-
-// Cria um componente que envolve o NavigationContainer e o AuthNavigator com o provedor do contexto de autenticação
 export const Rotas = () => {
-  // Cria um estado para armazenar o usuário e a função para atualizá-lo
-  const [user, setUser] = useState(null);
+  const { user } = useContext(AuthContext);
 
   return (
-    // Usa o provedor do contexto de autenticação para passar o usuário e a função para os componentes filhos
-    <AuthContext.Provider value={{ user, setUser }}>
-      <NavigationContainer>
-        <AuthNavigator />
-      </NavigationContainer>
-    </AuthContext.Provider>
+    <NavigationContainer>
+      <Navigator
+        tabBarOptions={{
+          activeTintColor: "#3498db",
+          inactiveTintColor: "#bdc3c7",
+        }}
+      >
+        {user ? (
+          <>
+            <Screen
+              name="Stack"
+              component={Stack}
+              options={{
+                tabBarLabel: "Inicio",
+                header: () => null,
+                tabBarIcon: ({ color, size }) => (
+                  <Feather name="home" size={size} color={color} />
+                ),
+              }}
+            />
+            <Screen
+              name="Produtos"
+              component={Produtos}
+              options={{
+                tabBarLabel: "Produtos",
+                header: () => null,
+                tabBarIcon: ({ color, size }) => (
+                  <Entypo name="shop" size={size} color={color} />
+                ),
+              }}
+            />
+            <Screen
+              name="Integrantes"
+              component={Integrantes}
+              options={{
+                tabBarLabel: "Integrantes",
+                tabBarIcon: ({ color, size }) => (
+                  <Fontisto name="persons" size={size} color={color} />
+                ),
+              }}
+            />
+          </>
+        ) : (
+          <>
+            <Screen
+              name="Login"
+              component={Login}
+              options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                  <Feather name="log-in" size={size} color={color} />
+                ),
+              }}
+            />
+            <Screen
+              name="Cadastro"
+              component={Cadastro}
+              options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                  <Feather name="user-plus" size={size} color={color} />
+                ),
+              }}
+            />
+          </>
+        )}
+      </Navigator>
+    </NavigationContainer>
   );
 };
