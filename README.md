@@ -1,7 +1,9 @@
 # Grupo 2/Turma 13 - Serratec
 
 ## Descrição do Projeto
-Breve descrição do projeto...
+O projeto em React Native propõe a criação de um aplicativo que atualmente utiliza navegação por meio do Stack Navigator. O foco principal é o gerenciamento de produtos com operações CRUD usando Axios, incluindo validação de inputs. Até o momento, o aplicativo permite apagar e editar produtos, bem como visualizar detalhes de cada produto. A funcionalidade de criação de produtos já está integrada com o serviço Mock.io, mas necessita ser implementada para refletir as alterações no aplicativo.
+
+Em resumo, o projeto aborda aprimoramentos no frontend, adiciona funcionalidades de monitoramento de conexão e animações, e planeja implementar a capacidade de visualizar produtos offline, proporcionando uma experiência abrangente e eficiente aos usuários do aplicativo.
 
 ## Instalação e execução do projeto
 -Git clone: https://github.com/juliafclima/trabalho-react-NATIVE-grupo2.git
